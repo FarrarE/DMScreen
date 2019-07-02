@@ -1,12 +1,11 @@
 # DMScreen
 
-This project converts an tvg file into a matrix of characters and outputs that to the console.
 
 ## Available Scripts
  ```
  npm start
  ```
- 
+
 ## Liscense
 
 Copyright © 2019 Ezra Farrar
