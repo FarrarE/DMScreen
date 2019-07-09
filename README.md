@@ -2,7 +2,7 @@
 
 DMScreen is a web app tool for Dungeons Masters to track important information about the game they are playing. This version is being designed specifically for Dungeon and Dragons 5th Edition and is open source to allow others to adapt it for other editions.
 
-# MVP Features
+## MVP Features
 
 These features are intended to be implemented for v1.0. Items with a ✅ have been implemented in master.
 
@@ -19,7 +19,7 @@ These features are intended to be implemented for v1.0. Items with a ✅ have be
 ..* Previous Turn.
 
 
-# Stretch Goals
+## Stretch Goals
 
 
 ## Getting Started
