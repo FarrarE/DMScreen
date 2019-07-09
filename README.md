@@ -1,5 +1,35 @@
 # DMScreen
 
+DMScreen is a web app tool for Dungeons Masters to track important information about the game they are playing. This version is being designed specifically for Dungeon and Dragons 5th Edition and is open source to allow others to adapt it for other editions.
+
+# MVP Features
+
+These features are intended to be implemented for v1.0. Items with a ✅ have been implemented in master.
+
+1. Add Player Characters to the list.
+2. Display Characters in the list. ✅
+3. Add Monsters to the list.
+4. Display Monsters in list. ✅
+5. Remove items from the list.
+6. Track Turns.
+..* Display current turn.
+7. Sort List by initiative.
+8. Turn iterator. 
+..* Next Turn.
+..* Previous Turn.
+
+
+# Stretch Goals
+
+
+## Getting Started
+
+### Requirements 
+
+##### Node
+
+Install [Node](https://nodejs.org/en/) which includes npm.
+
 
 ## Available Scripts
  ```
