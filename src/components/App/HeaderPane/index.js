@@ -3,13 +3,6 @@ import { Container, Row, Col} from 'reactstrap';
 import "./styles.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {
-  Navbar,
-  NavbarBrand,
-  Nav,
-} from 'reactstrap';
-
-
 class HeaderPane extends React.Component {
   constructor(props) {
     super(props);
@@ -36,7 +29,6 @@ class HeaderPane extends React.Component {
           <Col>
               <button type="submit">Prev</button>
               <button type="submit">Next</button>
-  
           </Col>
           <Col>DMScreen</Col>
           <Col>

@@ -6,7 +6,8 @@ class ListPane extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: {}
+      current: "",
+      list: []
     };
     this.populateList = this.populateList.bind(this);
   }
@@ -22,7 +23,7 @@ class ListPane extends Component {
 
     return (
         <div className="App">
-          {JSON.stringify(this.state.list.list)}
+          {JSON.stringify(this.state.list)}
         </div>
     );
   }

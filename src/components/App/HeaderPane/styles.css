@@ -1,3 +1,7 @@
 .Container{
   display:flex;
 }
+
+button{
+  border-radius: 50px;
+}

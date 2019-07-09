@@ -7,7 +7,9 @@ class CurrentPane extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: {},
+      data: {},
+      current: "",
+      list: []
     };
     this.getList = this.getList.bind(this);
   }
@@ -24,7 +26,8 @@ class CurrentPane extends Component {
 
     return (
       <div className="App">
-        Current: {JSON.stringify(this.state.list.current)}
+        Current: {JSON.stringify(this.state.current)}
+        {JSON.stringify(this.state.list[this.state.current])}
       </div>
     );
   }
