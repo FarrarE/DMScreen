@@ -1,12 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 
 
-const ListPane = () => (
-  <Container>
-    List Body
-  </Container>
-);
+class ListPane extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: {}
+    };
+    this.populateList = this.populateList.bind(this);
+  }
+
+  populateList(event) {
+    fetch(`/api/list`)
+      .then(response => response.json())
+      .then(state => this.setState(state));
+  }
+
+  render() {
+    {this.populateList()}
+
+    return (
+        <div className="App">
+          {JSON.stringify(this.state.list.list)}
+        </div>
+    );
+  }
+}
 
 export default ListPane;

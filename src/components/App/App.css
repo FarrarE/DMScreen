@@ -2,6 +2,14 @@
   background-color: gray;
 }
 
-.Body{
-  background-color: pink;
+.Current{
+  background-color: lightslategray;
+}
+
+.List{
+  background-color: blanchedalmond;
+}
+
+.App{
+  text-align: center;
 }

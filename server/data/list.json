@@ -1,0 +1,18 @@
+{
+    "list" : [
+        {
+            "name": "Eliel", 
+            "key": "0",
+            "type": "player",
+            "init": "15"
+        },
+        {
+            "name": "Zombie",
+            "key": "1",
+            "type": "monster",
+            "init": "10"
+        }
+    ],
+    "current": 0
+
+ }
