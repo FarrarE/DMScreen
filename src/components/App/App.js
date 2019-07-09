@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col} from 'reactstrap';
 import './App.css';
 
 import Header from "./Header";
@@ -10,23 +10,29 @@ function App() {
   return (
     <div className="App">
       <Container>
-
+        
         <Row className="Header">
-          <Col>
+          <Col md={4}/>
+          <Col md={4}>
             <Header />
           </Col>
+          <Col md={4}/>
         </Row>
           
         <Row className="Current">
+          <Col/>
           <Col>
             <CurrentPane />
           </Col>
+          <Col/>
         </Row>
 
         <Row className="List">
+          <Col/>
           <Col>
             <ListPane/>
           </Col>
+          <Col/>
         </Row>
 
       </Container>
