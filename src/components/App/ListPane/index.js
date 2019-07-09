@@ -21,12 +21,9 @@ class ListPane extends Component {
     {this.populateList()}
 
     return (
-      <Container >
         <div className="App">
-          <p>{JSON.stringify(this.state.list.list)}</p>
+          {JSON.stringify(this.state.list.list)}
         </div>
-      </Container>
-
     );
   }
 }
