@@ -4,11 +4,11 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/files", express.static('files'));
 
-app.get('/api', (req, res) => {
-  const name = req.query.name || 'World';
+app.get('/api/add', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
+  res.send(JSON.stringify({ confirmation: `add path called` }));
 });
 
 app.listen(3001, () =>
