@@ -11,29 +11,42 @@ These features are intended to be implemented for v1.0. Items with a ✅ have be
 3. Add Monsters to the list.
 4. Display Monsters in list. ✅
 5. Remove items from the list.
-6. Track Turns.
+6. Track current Turn. ✅
 ..* Display current turn.
 7. Sort List by initiative.
 8. Turn iterator. 
 ..* Next Turn.
 ..* Previous Turn.
+9. Store list using browser storage.
 
 
 ## Stretch Goals
 
+1. Allow user to sort list using drag and drop.
+2. A popup dice roller.
+3. User login.
+4. Store list in database. 
+5. Allow monsters to track actions.
+6. Store players and monsters so the user can add them without having to generate information.
 
 ## Getting Started
 
 ### Requirements 
 
-##### Node
-
 Install [Node](https://nodejs.org/en/) which includes npm.
 
+After cloning the repo and installing node, install the dependencies with:
+
+```
+npm install
+```
 
 ## Available Scripts
+
+To start both the server and the user interface use the following script command:
+
  ```
- npm start
+ npm run dev
  ```
 
 ## Liscense
