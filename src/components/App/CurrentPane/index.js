@@ -8,7 +8,7 @@ class CurrentPane extends Component {
     super(props);
     this.state = {
       confirmation: '',
-      current: {name: "name"}
+      current: {name: "Current"}
     };
     this.populateCurrent = this.populateCurrent.bind(this);
   }
