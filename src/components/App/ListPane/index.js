@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Container } from 'reactstrap';
 
 
@@ -7,7 +6,7 @@ class ListPane extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: ''
+      list: {}
     };
     this.populateList = this.populateList.bind(this);
   }
@@ -24,7 +23,7 @@ class ListPane extends Component {
     return (
       <Container >
         <div className="App">
-          <p>{JSON.stringify(this.state.list)}</p>
+          <p>{JSON.stringify(this.state.list.list)}</p>
         </div>
       </Container>
 

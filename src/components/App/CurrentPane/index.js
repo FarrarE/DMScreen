@@ -7,25 +7,24 @@ class CurrentPane extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      confirmation: '',
-      current: {name: "Current"}
+      list: {},
     };
-    this.populateCurrent = this.populateCurrent.bind(this);
+    this.getList = this.getList.bind(this);
   }
 
-  populateCurrent(event) {
-    fetch(`/api/add`)
+  getList(event) {
+    fetch(`/api/list`)
       .then(response => response.json())
       .then(state => this.setState(state));
   }
 
+
   render() {
-    {this.populateCurrent()}
+    {this.getList()}
 
     return (
       <div className="App">
-        <p>{this.state.confirmation}</p>
-        <p>{JSON.stringify(this.state.current)}</p>
+        Current: {JSON.stringify(this.state.list.current)}
       </div>
     );
   }

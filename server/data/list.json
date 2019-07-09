@@ -10,8 +10,9 @@
             "name": "Zombie",
             "key": "1",
             "type": "monster",
-            "init": "15"
+            "init": "10"
         }
-    ]
+    ],
+    "current": 0
 
  }
