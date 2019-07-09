@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const characterList = require('./data/characters.json');
+const list = require('./data/list.json');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -12,7 +12,7 @@ app.get('/api/add', (req, res) => {
 
 app.get('/api/list', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    res.send({ list: characterList });
+    res.send({ list: list });
   });
 
 
