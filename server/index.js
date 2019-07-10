@@ -12,7 +12,7 @@ app.get('/api/add', (req, res) => {
 
 app.get('/api/list', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    res.send({ list: data.list, current: data.current });
+    res.json({ list: data.list, current: data.current });
   });
 
 

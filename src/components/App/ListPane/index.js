@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
+import Player from '../Player';
 
 
 class ListPane extends Component {
@@ -19,12 +22,22 @@ class ListPane extends Component {
   }
 
   render() {
+ 
     {this.populateList()}
+    if (this.state.list[this.state.current] === undefined) return null;
+    
 
     return (
-        <div className="App">
-          {JSON.stringify(this.state.list)}
-        </div>
+        <Container className="list-pane">
+          <Row>
+            <Col></Col>
+            <Col>
+              {this.state.list.map(({name, key, type, init}) => <Player name={name} type={type} key={key} init={init}/>)}
+            </Col>
+            <Col></Col>
+          </Row>
+  
+        </Container>
     );
   }
 }

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
+import Player from '../Player';
+
 
 
 class CurrentPane extends Component {
@@ -20,15 +24,26 @@ class CurrentPane extends Component {
       .then(state => this.setState(state));
   }
 
-
   render() {
     {this.getList()}
+    if (this.state.list[this.state.current] === undefined) return null;
 
+    {var currentPlayer = this.state.list[this.state.current]}
+    
     return (
-      <div className="App">
-        Current: {JSON.stringify(this.state.current)}
-        {JSON.stringify(this.state.list[this.state.current])}
-      </div>
+  
+
+      <Container className="current-pane">
+        <Row> 
+          <Col>
+            Current: {this.state.current}
+          </Col>
+          <Col>        
+            <Player name={currentPlayer.name} key={currentPlayer.key} type={currentPlayer.type} init={currentPlayer.init} />
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
     );
   }
 }

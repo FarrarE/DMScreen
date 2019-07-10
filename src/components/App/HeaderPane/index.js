@@ -24,7 +24,7 @@ class HeaderPane extends React.Component {
     
 
     return (
-      <Container fluid>
+      <Container className="header-pane">
         <Row>
           <Col>
               <button type="submit">Prev</button>
