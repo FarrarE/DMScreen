@@ -8,7 +8,6 @@ import Player from '../Player';
 const CurrentPane = (props) => {
 
   return (
-    <div className="player-card">
       <Container className="current-pane">
         <Row> 
           <Col>
@@ -23,7 +22,6 @@ const CurrentPane = (props) => {
           <Col></Col>
         </Row>
       </Container>
-    </div>
   )
 }
 

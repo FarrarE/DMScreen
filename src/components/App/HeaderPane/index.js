@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const HeaderPane = (props) => {
 
   return (
-    <div className="player-card">
      <Container className="header-pane">
         <Row>
           <Col>
@@ -20,7 +19,6 @@ const HeaderPane = (props) => {
           </Col>
         </Row>
       </Container>
-    </div>
   )
 }
 
