@@ -11,28 +11,38 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [],
-      current: '0'
+      current: "",
+      list: []
     };
+    this.populateList = this.populateList.bind(this);
+  }
+
+  populateList(event) {
+    fetch(`/api/list`)
+      .then(response => response.json())
+      .then(state => this.setState(state));
   }
 
   render() {
     
+    {this.populateList()}
+    if (this.state.list[this.state.current] === undefined) return null;
+
+    
     return (
   
-          <Container className="app">  
-      <Row className="Header">
+      <Container className="app">  
+        <Row className="Header">
           <HeaderPane />
-      </Row>
-      <Row className="Current">
+        </Row>
+        <Row className="Current">
           <CurrentPane />
-      </Row>
-      <Row className="List">
+        </Row>
+        <Row className="List">
           <ListPane/>
       </Row>
-    </Container>
-
-    );
+      </Container>
+    )
   }
 }
 
