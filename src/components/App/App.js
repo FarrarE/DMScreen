@@ -8,23 +8,18 @@ import ListPane from "./ListPane";
 
 function App() {
   return (
-    <div className="App">
-      <Container>
-        
-        <Row className="Header">
-            <HeaderPane />
-        </Row>
-          
-        <Row className="Current">
-            <CurrentPane />
-        </Row>
 
-        <Row className="List">
-            <ListPane/>
-        </Row>
-
-      </Container>
-    </div>
+  <Container className="app">  
+      <Row className="Header">
+          <HeaderPane />
+      </Row>
+      <Row className="Current">
+          <CurrentPane />
+      </Row>
+      <Row className="List">
+          <ListPane/>
+      </Row>
+    </Container>
   );
 }
 
