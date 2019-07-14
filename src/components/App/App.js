@@ -26,7 +26,7 @@ class App extends Component {
   render() {
 
     {this.populateList()}
-    if (this.state.list === undefined) return null;
+    if (this.state.list[this.state.current] === undefined) return null;
 
     
     return (
@@ -36,7 +36,7 @@ class App extends Component {
           <HeaderPane />
         </Row>
         <Row className="Current">
-          <CurrentPane />
+          <CurrentPane currentPlayer={this.state.list[this.state.current]}/>
         </Row>
         <Row className="List">
           <ListPane list={this.state.list}/>
