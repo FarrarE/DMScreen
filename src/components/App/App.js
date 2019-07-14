@@ -24,9 +24,9 @@ class App extends Component {
   }
 
   render() {
-    
+
     {this.populateList()}
-    if (this.state.list[this.state.current] === undefined) return null;
+    if (this.state.list === undefined) return null;
 
     
     return (
@@ -39,7 +39,7 @@ class App extends Component {
           <CurrentPane />
         </Row>
         <Row className="List">
-          <ListPane/>
+          <ListPane list={this.state.list}/>
       </Row>
       </Container>
     )
