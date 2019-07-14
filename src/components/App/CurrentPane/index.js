@@ -12,7 +12,6 @@ const CurrentPane = (props) => {
       <Container className="current-pane">
         <Row> 
           <Col>
-            Current: {this.state.current}
           </Col>
           <Col>        
             <Player name={props.currentPlayer.name} 

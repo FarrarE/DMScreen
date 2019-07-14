@@ -12,7 +12,8 @@ class App extends Component {
     super(props);
     this.state = {
       current: "",
-      list: []
+      list: [],
+      currentPlayer: {}
     };
     this.populateList = this.populateList.bind(this);
   }
@@ -26,9 +27,11 @@ class App extends Component {
   render() {
 
     {this.populateList()}
-    if (this.state.list[this.state.current] === undefined) return null;
 
-    
+    if (this.state.list[this.state.current] === undefined) return null;
+    else
+      {this.state.currentPlayer = this.state.list[this.state.current]}
+
     return (
   
       <Container className="app">  
@@ -36,7 +39,7 @@ class App extends Component {
           <HeaderPane />
         </Row>
         <Row className="Current">
-          <CurrentPane currentPlayer={this.state.list[this.state.current]}/>
+          <CurrentPane currentPlayer={this.state.currentPlayer}/>
         </Row>
         <Row className="List">
           <ListPane list={this.state.list}/>
