@@ -35,19 +35,14 @@ class App extends Component {
     return (
   
       <Container className="app"> 
-        <Row>
-          <Col md='1'></Col>
-          <Col md="10">
-            <Row className="Header">
-              <HeaderPane />
-            </Row>
-            <Row className="Current">
-              <CurrentPane currentPlayer={this.state.currentPlayer}/>
-            </Row>
-            <Row className="List">
-              <ListPane list={this.state.list}/>
-            </Row></Col>
-          <Col md='1'></Col>
+        <Row className="Header">
+          <HeaderPane />
+        </Row>
+        <Row className="Current">
+          <CurrentPane currentPlayer={this.state.currentPlayer}/>
+        </Row>
+        <Row className="List">
+          <ListPane list={this.state.list}/>
         </Row>
       </Container>
     )
