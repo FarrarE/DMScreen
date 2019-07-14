@@ -11,11 +11,39 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: "",
+      current: 0,
       list: [],
       currentPlayer: {}
     };
     this.populateList = this.populateList.bind(this);
+    this.previousPlayer = this.previousPlayer.bind(this);
+    this.nextPlayer = this.nextPlayer.bind(this);
+  }
+
+  previousPlayer(){
+
+    if(this.state.current === 0){
+      this.setState((state) => {
+        return {current: state.list.length};
+      });
+    }
+
+    this.setState((state) => {
+      return {current: state.current - 1};
+    });
+  }
+
+  nextPlayer(){
+
+    if(this.state.current === this.state.list.length - 1){
+      this.setState((state) => {
+        return {current: -1};
+      });
+    }
+
+    this.setState((state) => {
+      return {current: state.current + 1};
+    });
   }
 
   populateList(event) {
@@ -36,7 +64,7 @@ class App extends Component {
   
       <Container className="app"> 
         <Row className="Header">
-          <HeaderPane />
+          <HeaderPane previous={this.previousPlayer} next={this.nextPlayer} />
         </Row>
         <Row className="Current">
           <CurrentPane currentPlayer={this.state.currentPlayer}/>

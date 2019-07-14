@@ -4,18 +4,17 @@ import "./styles.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HeaderPane = (props) => {
-
   return (
      <Container className="header-pane">
         <Row>
           <Col>
-              <button type="submit">Prev</button>
-              <button type="submit">Next</button>
+              <button onClick={props.previous} type="submit">Prev</button>
+              <button onClick={props.next} type="submit">Next</button>
           </Col>
           <Col>DMScreen</Col>
           <Col>
               <button type="submit">Sort</button>
-              <button type="submit">Add</button>
+              <button >Add</button>
           </Col>
         </Row>
       </Container>
