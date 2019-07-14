@@ -3,28 +3,11 @@ import { Container, Row, Col} from 'reactstrap';
 import "./styles.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class HeaderPane extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: {}
-    };
-    this.populateList = this.populateList.bind(this);
-  }
-  
+const HeaderPane = (props) => {
 
-  populateList(event) {
-    fetch(`/api/list`)
-      .then(response => response.json())
-      .then(state => this.setState(state));
-  }
-
-  render() {
-    {this.populateList()}
-    
-
-    return (
-      <Container className="header-pane">
+  return (
+    <div className="player-card">
+     <Container className="header-pane">
         <Row>
           <Col>
               <button type="submit">Prev</button>
@@ -37,8 +20,8 @@ class HeaderPane extends React.Component {
           </Col>
         </Row>
       </Container>
-    );
-  }
+    </div>
+  )
 }
 
 export default HeaderPane;
