@@ -5,6 +5,7 @@ import './App.css';
 import HeaderPane from "./HeaderPane";
 import CurrentPane from "./CurrentPane";
 import ListPane from "./ListPane";
+import AddPaine from "./AddPane";
 
 
 class App extends Component {

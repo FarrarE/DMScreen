@@ -20,6 +20,20 @@ class AddPane extends Component {
   
 
       <Container className="add-pane">
+        <Row>
+          <form>
+            <input type="text" />
+          </form>
+        </Row>
+          <form>
+            <input type="text" />
+          </form>}
+        <Row>
+
+        </Row>
+        <Row>
+
+        </Row>
       </Container>
     );
   }
