@@ -27,7 +27,7 @@ class AddPane extends Component {
         </Row>
           <form>
             <input type="text" />
-          </form>}
+          </form>
         <Row>
 
         </Row>

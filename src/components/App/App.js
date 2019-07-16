@@ -5,7 +5,7 @@ import './App.css';
 import HeaderPane from "./HeaderPane";
 import CurrentPane from "./CurrentPane";
 import ListPane from "./ListPane";
-import AddPaine from "./AddPane";
+import AddPane from './AddPane';
 
 
 class App extends Component {
@@ -64,6 +64,7 @@ class App extends Component {
     return (
   
       <Container className="app"> 
+        <AddPane />
         <Row className="Header">
           <HeaderPane previous={this.previousPlayer} next={this.nextPlayer} />
         </Row>
