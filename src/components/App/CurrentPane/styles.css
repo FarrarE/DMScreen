@@ -1,6 +1,7 @@
 .current-pane{
   border: 1px solid;
   border-radius: 1rem;
-  padding: 1rem;
-  margin: .5rem;
+  padding: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
