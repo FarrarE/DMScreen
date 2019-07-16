@@ -1,38 +1,74 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Container, Col, Row } from 'reactstrap';
+import { Container, Col, Row, TabPane, TabContent, Nav, NavItem, NavLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
+import classnames from 'classnames';
 
 
-
-class AddPane extends Component {
+class AddPane extends React.Component {
   constructor(props) {
     super(props);
+
+    this.toggle = this.toggle.bind(this);
     this.state = {
-      hidden: true,
+      activeTab: 'player'
     };
   }
 
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
+  }
   render() {
     
     return (
 
       <Container className="add-pane">
-        <Row>
-          <form>
-            <input type="text" />
-          </form>
-        </Row>
-          <form>
-            <input type="text" />
-          </form>
-        <Row>
-        <button>Submit</button>
-        </Row>
-        <Row>
-
-        </Row>
+        <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === 'player' })}
+              onClick={() => { this.toggle('player'); }}
+            >
+              Player
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === 'monster' })}
+              onClick={() => { this.toggle('monster'); }}
+            >
+              Monster
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="player">
+            <Row form="true">
+              <input type="text" placeholder="Name"/>
+            </Row>
+            <Row form="true">
+              <input type="text" placeholder="Initiative"/>
+            </Row>
+            <Row form="true">
+              <button>Submit</button>
+            </Row>
+          </TabPane>
+          <TabPane tabId="monster">
+            <Row form="true">
+              <input type="text" placeholder="Name"/>
+            </Row>
+            <Row form="true">
+              <input type="text" placeholder="Initiative"/>
+            </Row>
+            <Row form="true">
+              <button>Submit</button>
+            </Row>
+          </TabPane>
+        </TabContent>
       </Container>
     );
   }
