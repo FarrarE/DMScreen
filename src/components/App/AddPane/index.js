@@ -17,7 +17,6 @@ class AddPane extends Component {
   render() {
     
     return (
-  
 
       <Container className="add-pane">
         <Row>
@@ -29,7 +28,7 @@ class AddPane extends Component {
             <input type="text" />
           </form>
         <Row>
-
+        <button>Submit</button>
         </Row>
         <Row>
 
