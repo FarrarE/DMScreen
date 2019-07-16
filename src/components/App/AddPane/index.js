@@ -8,11 +8,10 @@ import classnames from 'classnames';
 class AddPane extends React.Component {
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
     this.state = {
       activeTab: 'player'
     };
+    this.toggle = this.toggle.bind(this);
   }
 
   toggle(tab) {
