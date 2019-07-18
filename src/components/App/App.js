@@ -14,11 +14,13 @@ class App extends Component {
     this.state = {
       current: 0,
       list: [],
-      currentPlayer: {}
+      currentPlayer: {},
+      addPaneOpen: true
     };
     this.populateList = this.populateList.bind(this);
     this.previousPlayer = this.previousPlayer.bind(this);
     this.nextPlayer = this.nextPlayer.bind(this);
+    this.toggleAddPane = this.toggleAddPane.bind(this);
   }
 
   previousPlayer(){
@@ -47,13 +49,21 @@ class App extends Component {
     });
   }
 
+  toggleAddPane(){
+    this.setState((state) => {
+      return {addPaneOpen: !state.addPaneOpen};
+    });
+  }
+
   populateList(event) {
     fetch(`/api/list`)
       .then(response => response.json())
       .then(state => this.setState(state));
   }
 
+ 
   render() {
+    let addPane;
 
     this.populateList()
 
@@ -61,12 +71,16 @@ class App extends Component {
     else
       this.state.currentPlayer = this.state.list[this.state.current]
 
+      if(this.state.addPaneOpen){
+        addPane = <AddPane />
+      }
+    
     return (
   
       <Container className="app"> 
-        <AddPane />
+        {addPane}
         <Row className="Header">
-          <HeaderPane previous={this.previousPlayer} next={this.nextPlayer} />
+          <HeaderPane previous={this.previousPlayer} next={this.nextPlayer} add={this.toggleAddPane} />
         </Row>
         <Row className="Current">
           <CurrentPane currentPlayer={this.state.currentPlayer}/>
