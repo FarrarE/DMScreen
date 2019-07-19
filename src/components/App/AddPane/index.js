@@ -15,7 +15,8 @@ class AddPane extends React.Component {
       init:""
     };
     this.toggle = this.toggle.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitPlayer = this.handleSubmitPlayer.bind(this);
+    this.handleSubmitMonster = this.handleSubmitMonster.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleInitChange = this.handleInitChange.bind(this);
   }
@@ -28,9 +29,26 @@ class AddPane extends React.Component {
     }
   }
 
-  handleSubmit(event) {
+  handleSubmitPlayer(event) {
     let user = {
       name: this.state.name,
+      type: "player",
+      init: this.state.init
+    }
+
+    axios.post('/api/add', user)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  handleSubmitMonster(event) {
+    let user = {
+      name: this.state.name,
+      type: "monster",
       init: this.state.init
     }
 
@@ -83,18 +101,18 @@ class AddPane extends React.Component {
               <input type="text" placeholder="Initiative" onChange={this.handleInitChange}/>
             </Row>
             <Row form="true">
-              <button onClick={this.handleSubmit}>Submit</button>
+              <button onClick={this.handleSubmitPlayer}>Submit</button>
             </Row>
           </TabPane>
           <TabPane tabId="monster">
             <Row form="true">
-              <input type="text" placeholder="Name"/>
+              <input type="text" placeholder="Name" onChange={this.handleNameChange} />
             </Row>
             <Row form="true">
-              <input type="text" placeholder="Initiative"/>
+              <input type="text" placeholder="Initiative" onChange={this.handleInitChange} />
             </Row>
             <Row form="true">
-              <button>Submit</button>
+              <button onClick={this.handleSubmitMonster}>Submit</button>
             </Row>
           </TabPane>
         </TabContent>

@@ -16,6 +16,7 @@ app.post('/api/add', (req, res) => {
     var arrayOfObjects = JSON.parse(data)
     arrayOfObjects.list.push({
       name: req.body.name,
+      type: req.body.type,
       init: req.body.init
     })
   
