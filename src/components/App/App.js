@@ -7,7 +7,6 @@ import CurrentPane from "./CurrentPane";
 import ListPane from "./ListPane";
 import AddPane from './AddPane';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,7 @@ class App extends Component {
       current: 0,
       list: [],
       currentPlayer: {},
-      addPaneOpen: true
+      addPaneOpen: false
     };
     this.populateList = this.populateList.bind(this);
     this.previousPlayer = this.previousPlayer.bind(this);
@@ -36,6 +35,7 @@ class App extends Component {
     });
   }
 
+  
   nextPlayer(){
 
     if(this.state.current === this.state.list.length - 1){
@@ -71,9 +71,9 @@ class App extends Component {
     else
       this.state.currentPlayer = this.state.list[this.state.current]
 
-      if(this.state.addPaneOpen){
-        addPane = <AddPane />
-      }
+    if(this.state.addPaneOpen){
+      addPane = <AddPane />
+    }
     
     return (
   

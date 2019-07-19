@@ -3,15 +3,21 @@ import { Container, Col, Row, TabPane, TabContent, Nav, NavItem, NavLink } from 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import classnames from 'classnames';
+const axios = require('axios');
 
 
 class AddPane extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: 'player'
+      activeTab: 'player',
+      name:"",
+      init:""
     };
     this.toggle = this.toggle.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleInitChange = this.handleInitChange.bind(this);
   }
 
   toggle(tab) {
@@ -21,6 +27,30 @@ class AddPane extends React.Component {
       });
     }
   }
+
+  handleSubmit(event) {
+    let user = {
+      name: this.state.name,
+      init: this.state.init
+    }
+
+    axios.post('/api/add', user)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  handleNameChange = event => {
+    this.setState({name: event.target.value});
+  }
+
+  handleInitChange = event => {
+    this.setState({init: event.target.value});
+  }
+
   render() {
     
     return (
@@ -47,13 +77,13 @@ class AddPane extends React.Component {
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="player">
             <Row form="true">
-              <input type="text" placeholder="Name"/>
+              <input type="text" placeholder="Name" onChange={this.handleNameChange}/>
             </Row>
             <Row form="true">
-              <input type="text" placeholder="Initiative"/>
+              <input type="text" placeholder="Initiative" onChange={this.handleInitChange}/>
             </Row>
             <Row form="true">
-              <button>Submit</button>
+              <button onClick={this.handleSubmit}>Submit</button>
             </Row>
           </TabPane>
           <TabPane tabId="monster">
