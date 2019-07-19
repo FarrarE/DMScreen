@@ -5,3 +5,19 @@
   margin: 5px;
   padding: 5px;
 }
+
+.player-card:hover{
+  box-shadow: 0 1px 0px;
+}
+
+.player-card:hover .close{
+ display:inline;
+}
+
+.close{
+  margin-right:10px;
+  display:none;
+  border: solid 1px;
+  border-radius:20%;
+  padding:1px;
+}
