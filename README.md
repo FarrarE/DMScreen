@@ -6,9 +6,9 @@ DMScreen is a web app tool for Dungeons Masters to track important information a
 
 These features are intended to be implemented for v1.0. Items with a ✅ have been implemented in master.
 
-1. Add Player Characters to the list.
+1. Add Player Characters to the list. ✅
 2. Display Characters in the list. ✅
-3. Add Monsters to the list.
+3. Add Monsters to the list. ✅
 4. Display Monsters in list. ✅
 5. Remove items from the list.
 6. Track current Turn. ✅
