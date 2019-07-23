@@ -32,6 +32,7 @@ class AddPane extends React.Component {
   handleSubmitPlayer(event) {
     let user = {
       name: this.state.name,
+      key: "",
       type: "player",
       init: this.state.init
     }
@@ -43,6 +44,7 @@ class AddPane extends React.Component {
   handleSubmitMonster(event) {
     let user = {
       name: this.state.name,
+      key: "",
       type: "monster",
       init: this.state.init
     }
