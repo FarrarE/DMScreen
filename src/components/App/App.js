@@ -71,6 +71,17 @@ class App extends Component {
 
   }
 
+  removeButtonCallback = (dataToRemove) =>{
+
+    var newList = [...this.state.list];
+    var index = newList.indexOf(dataToRemove.target.value)
+    
+    if (index !== -1) {
+      newList.splice(index, 1);
+      this.setState({list: newList});
+    }
+  }
+
   render() {
     let addPane;
 
@@ -79,7 +90,7 @@ class App extends Component {
       this.state.currentPlayer = this.state.list[this.state.current]
 
     if(this.state.addPaneOpen){
-      addPane = <AddPane add={this.addPaneCallback}/>
+      addPane = <AddPane add={this.addPaneCallback} toggle={this.toggleAddPane}/>
     }
     
     return (
