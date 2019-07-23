@@ -10,16 +10,18 @@ import AddPane from './AddPane';
 class App extends Component {
   constructor(props) {
     super(props);
+    
+    this.populateList = this.populateList.bind(this);
+    this.previousPlayer = this.previousPlayer.bind(this);
+    this.nextPlayer = this.nextPlayer.bind(this);
+    this.toggleAddPane = this.toggleAddPane.bind(this);
+    this.populateList();
     this.state = {
       current: 0,
       list: [],
       currentPlayer: {},
       addPaneOpen: false
     };
-    this.populateList = this.populateList.bind(this);
-    this.previousPlayer = this.previousPlayer.bind(this);
-    this.nextPlayer = this.nextPlayer.bind(this);
-    this.toggleAddPane = this.toggleAddPane.bind(this);
   }
 
   previousPlayer(){
@@ -61,18 +63,23 @@ class App extends Component {
       .then(state => this.setState(state));
   }
 
- 
+  addPaneCallback = (dataToAdd) => {
+
+    this.setState(prevState => ({
+      list: [...prevState.list, dataToAdd]
+    }));
+
+  }
+
   render() {
     let addPane;
-
-    this.populateList()
 
     if (this.state.list[this.state.current] === undefined) return null;
     else
       this.state.currentPlayer = this.state.list[this.state.current]
 
     if(this.state.addPaneOpen){
-      addPane = <AddPane />
+      addPane = <AddPane add={this.addPaneCallback}/>
     }
     
     return (

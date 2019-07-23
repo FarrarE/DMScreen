@@ -36,13 +36,7 @@ class AddPane extends React.Component {
       init: this.state.init
     }
 
-    axios.post('/api/add', user)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    this.props.add(user);
   }
 
   handleSubmitMonster(event) {
@@ -51,14 +45,8 @@ class AddPane extends React.Component {
       type: "monster",
       init: this.state.init
     }
-
-    axios.post('/api/add', user)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    
+    this.props.add(user);
   }
 
   handleNameChange = event => {
@@ -94,24 +82,24 @@ class AddPane extends React.Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="player">
-            <Row form="true">
+            <Row form={true}>
               <input type="text" placeholder="Name" onChange={this.handleNameChange}/>
             </Row>
-            <Row form="true">
+            <Row form={true}>
               <input type="text" placeholder="Initiative" onChange={this.handleInitChange}/>
             </Row>
-            <Row form="true">
+            <Row form={true}>
               <button onClick={this.handleSubmitPlayer}>Submit</button>
             </Row>
           </TabPane>
           <TabPane tabId="monster">
-            <Row form="true">
+            <Row form={true}>
               <input type="text" placeholder="Name" onChange={this.handleNameChange} />
             </Row>
-            <Row form="true">
+            <Row form={true}>
               <input type="text" placeholder="Initiative" onChange={this.handleInitChange} />
             </Row>
-            <Row form="true">
+            <Row form={true}>
               <button onClick={this.handleSubmitMonster}>Submit</button>
             </Row>
           </TabPane>
