@@ -37,6 +37,7 @@ class AddPane extends React.Component {
     }
 
     this.props.add(user);
+    this.props.toggle();
   }
 
   handleSubmitMonster(event) {
@@ -47,6 +48,7 @@ class AddPane extends React.Component {
     }
     
     this.props.add(user);
+    this.props.toggle();
   }
 
   handleNameChange = event => {
