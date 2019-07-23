@@ -13,7 +13,7 @@ const HeaderPane = (props) => {
           </Col>
           <Col>DMScreen</Col>
           <Col>
-              <button type="submit">Sort</button>
+              <button onClick={props.sort} >Sort</button>
               <button onClick={props.add}>Add</button>
           </Col>
         </Row>

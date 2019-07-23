@@ -12,6 +12,7 @@ class App extends Component {
     super(props);
     
     this.populateList = this.populateList.bind(this);
+    this.sortList = this.sortList.bind(this);
     this.previousPlayer = this.previousPlayer.bind(this);
     this.nextPlayer = this.nextPlayer.bind(this);
     this.toggleAddPane = this.toggleAddPane.bind(this);
@@ -37,7 +38,21 @@ class App extends Component {
     });
   }
 
-  
+  populateList(event) {
+    fetch(`/api/list`)
+      .then(response => response.json())
+      .then(state => this.setState(state));
+  }
+
+  sortList(){
+    let newList = this.state.list;
+    newList.sort((a, b) => parseFloat(b.init) - parseFloat(a.init));
+
+    this.setState((state) => {
+      return {list: newList};
+    });
+  }
+
   nextPlayer(){
 
     if(this.state.current === this.state.list.length - 1){
@@ -57,11 +72,6 @@ class App extends Component {
     });
   }
 
-  populateList(event) {
-    fetch(`/api/list`)
-      .then(response => response.json())
-      .then(state => this.setState(state));
-  }
 
   addPaneCallback = (dataToAdd) => {
 
@@ -98,7 +108,7 @@ class App extends Component {
       <Container className="app"> 
         {addPane}
         <Row className="Header">
-          <HeaderPane previous={this.previousPlayer} next={this.nextPlayer} add={this.toggleAddPane} />
+          <HeaderPane previous={this.previousPlayer} next={this.nextPlayer} add={this.toggleAddPane} sort={this.sortList} />
         </Row>
         <Row className="Current">
           <CurrentPane currentPlayer={this.state.currentPlayer}/>
