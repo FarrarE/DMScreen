@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';

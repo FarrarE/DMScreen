@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-import { Container, Col, Row, TabPane, TabContent, Nav, NavItem, NavLink } from 'reactstrap';
+import React from 'react';
+import { Container, Row, TabPane, TabContent, Nav, NavItem, NavLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import classnames from 'classnames';
-const axios = require('axios');
-
 
 class AddPane extends React.Component {
   constructor(props) {

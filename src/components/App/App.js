@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col} from 'reactstrap';
+import { Container, Row} from 'reactstrap';
 import './App.css';
 
 import HeaderPane from "./HeaderPane";
@@ -75,7 +75,7 @@ class App extends Component {
 
     var newList = [...this.state.list];
     var index = newList.indexOf(dataToRemove.target.value)
-    
+
     if (index !== -1) {
       newList.splice(index, 1);
       this.setState({list: newList});

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row, TabPane, TabContent, Nav, NavItem, NavLink } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 import './styles.css'
 
 const Player = (props) => {
