@@ -100,7 +100,7 @@ class App extends Component {
       this.state.currentPlayer = this.state.list[this.state.current]
 
     if(this.state.addPaneOpen){
-      addPane = <AddPane add={this.addPaneCallback} toggle={this.toggleAddPane}/>
+      addPane = <AddPane add={this.addPaneCallback} toggle={this.toggleAddPane} length={this.state.list.length}/>
     }
     
     return (

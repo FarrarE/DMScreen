@@ -9,6 +9,7 @@ const ListPane = (props) => {
 
   return (
       <Container className="list-pane">
+        {alert(JSON.stringify(props.list))}
         {props.list.map(({name, key, type, init}) => 
           <Player className="player" name={name} type={type} key={key} init={init}/>
         )}

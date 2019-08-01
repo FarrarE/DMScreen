@@ -30,7 +30,7 @@ class AddPane extends React.Component {
   handleSubmitPlayer(event) {
     let user = {
       name: this.state.name,
-      key: "",
+      key: this.props.length,
       type: "player",
       init: this.state.init
     }
