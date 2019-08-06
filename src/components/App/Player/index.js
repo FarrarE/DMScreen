@@ -29,7 +29,7 @@ class Player extends React.Component {
   return (
     <Container className="player-card">
       <Row>
-        <Col md="1">
+        <Col md="2">
           <div className="icon-col" >
             <div className="icon-div">
               {icon}
@@ -48,7 +48,7 @@ class Player extends React.Component {
           <label><h5>Initiative</h5></label><br></br>
           {this.props.init}
         </Col>
-        <Col className="close-col" md="2">
+        <Col className="close-col" md="1">
           <button onClick={this.handleRemove} className="close">X</button>
         </Col>
       </Row>
