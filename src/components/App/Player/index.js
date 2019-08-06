@@ -18,6 +18,7 @@ class Player extends React.Component {
   }
 
   render() {
+
     let icon;
 
     if(this.props.type === "monster")
@@ -28,22 +29,19 @@ class Player extends React.Component {
   return (
     <Container className="player-card">
       <Row>
- 
-
         <Col className="icon-col" md="1">
           {icon}
         </Col>
         <Col md="3">
-
-          <label>Name</label><br></br>
+          <label><h5>Name</h5></label><br></br>
           {this.props.name}
         </Col>
         <Col md="3">
-          <label>Type</label><br></br>
+          <label><h5>Type</h5></label><br></br>
           {this.props.type}
         </Col>
         <Col md="3">
-          <label>Initiative</label><br></br>
+          <label><h5>Initiative</h5></label><br></br>
           {this.props.init}
         </Col>
         <Col className="close-col" md="2">
