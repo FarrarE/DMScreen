@@ -25,6 +25,7 @@ These features are intended to be implemented for v1.0. Items with a ✅ have be
 4. Store list in database. 
 5. Allow monsters to track actions.
 6. Store players and monsters so the user can add them without having to generate information.
+7. Allow user to choose icon for list item.
 
 ## Getting Started
 
