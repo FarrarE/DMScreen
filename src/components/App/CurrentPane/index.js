@@ -9,9 +9,11 @@ const CurrentPane = (props) => {
   return (
       <Container className="current-pane">
         <Row> 
-          <Col>
+          <Col className="prev-col" md="3">
+          <button onClick={props.previous} type="submit">Prev</button>
+             
           </Col>
-          <Col>        
+          <Col md="6">        
             <Player name={props.currentPlayer.name} 
               key={props.currentPlayer.key} 
               ukey={props.currentPlayer.key}
@@ -20,7 +22,9 @@ const CurrentPane = (props) => {
               remove={props.remove}
             />
           </Col>
-          <Col></Col>
+          <Col className="next-col" md="3">
+          <button onClick={props.next} type="submit">Next</button>
+          </Col>
         </Row>
       </Container>
   )

@@ -8,8 +8,8 @@ const HeaderPane = (props) => {
      <Container className="header-pane">
         <Row>
           <Col>
-              <button onClick={props.previous} type="submit">Prev</button>
-              <button onClick={props.next} type="submit">Next</button>
+              <button onClick={props.previous} type="submit">Load</button>
+              <button onClick={props.next} type="submit">Save</button>
           </Col>
           <Col>DMScreen</Col>
           <Col>

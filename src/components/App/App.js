@@ -133,14 +133,14 @@ class App extends Component {
         {addPane}
         <Row className="Header">
           <HeaderPane 
-            previous={this.previousPlayer} 
-            next={this.nextPlayer} 
             add={this.toggleAddPane} 
             sort={this.sortList} 
           />
         </Row>
         <Row className="Current">
           <CurrentPane 
+            previous={this.previousPlayer} 
+            next={this.nextPlayer} 
             remove={this.removeButton} 
             currentPlayer={this.state.currentPlayer}
           />
