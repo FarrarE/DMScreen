@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
 import './styles.css'
+import monster from './assets/Orc.png';
+import player from "./assets/Player.png";
 
 class Player extends React.Component {
   constructor(props){
@@ -16,11 +18,25 @@ class Player extends React.Component {
   }
 
   render() {
+    let icon;
+
+    if(this.props.type === "monster")
+      icon = monster;
+    else  
+      icon = player;
+    
   return (
     <Container className="player-card">
       <Row>
+ 
+
+        <Col className="icon-col" md="1">
+
+          <img src={icon} alt={"..."}></img> 
+        </Col>
         <Col md="3">
-        <label>Name</label><br></br>
+
+          <label>Name</label><br></br>
           {this.props.name}
         </Col>
         <Col md="3">
@@ -31,7 +47,7 @@ class Player extends React.Component {
           <label>Initiative</label><br></br>
           {this.props.init}
         </Col>
-        <Col className="close-col" md="3">
+        <Col className="close-col" md="2">
           <button onClick={this.handleRemove} className="close">X</button>
         </Col>
       </Row>
