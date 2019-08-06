@@ -105,6 +105,9 @@ class App extends Component {
       newList.splice(index, 1);
       this.setState({list: newList});
     }
+
+    if(this.state.list.length === 0)
+    this.setState({currentPlayer: {}});
   }
 
   setCurrent = () =>{
