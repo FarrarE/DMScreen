@@ -14,7 +14,7 @@ class Player extends React.Component {
 
   handleRemove(event) {
 
-      this.props.remove(this.props.ukey);
+    this.props.remove(this.props.ukey);
   }
 
   render() {
