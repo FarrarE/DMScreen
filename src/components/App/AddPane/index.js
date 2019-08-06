@@ -92,6 +92,7 @@ class AddPane extends React.Component {
             </Row>
             <Row form={true}>
               <button onClick={this.handleSubmitPlayer}>Submit</button>
+              <button onClick={this.props.toggle}>Cancel</button>
             </Row>
           </TabPane>
           <TabPane tabId="monster">
@@ -103,6 +104,7 @@ class AddPane extends React.Component {
             </Row>
             <Row form={true}>
               <button onClick={this.handleSubmitMonster}>Submit</button>
+              <button onClick={this.props.toggle}>Cancel</button>
             </Row>
           </TabPane>
         </TabContent>
