@@ -10,11 +10,11 @@ These features are intended to be implemented for v1.0. Items with a ✅ have be
 2. Display Characters in the list. ✅
 3. Add Monsters to the list. ✅
 4. Display Monsters in list. ✅
-5. Remove items from the list.
+5. Remove items from the list.✅
 6. Track current Turn. ✅
 7. Sort List by initiative. ✅
 8. Turn iterator. ✅
-9. Store list using browser storage.
+9. Store List.
 
 
 ## Stretch Goals
