@@ -25,6 +25,24 @@ class App extends Component {
     };
   }
 
+  // Gets a list from the server api route and saves it to props list
+  populateList(event) {
+    fetch(`/api/list`)
+      .then(response => response.json())
+      .then(state => this.setState(state));
+  }
+
+  // Sorts the props list in descending order based on the init property
+  sortList(){
+    let newList = this.state.list;
+    newList.sort((a, b) => parseFloat(b.init) - parseFloat(a.init));
+
+    this.setState((state) => {
+      return {list: newList};
+    });
+  }
+
+  // Decrements current -1, changing what is displayed in the currentPane
   previousPlayer(){
 
     if(this.state.current === 0){
@@ -38,21 +56,7 @@ class App extends Component {
     });
   }
 
-  populateList(event) {
-    fetch(`/api/list`)
-      .then(response => response.json())
-      .then(state => this.setState(state));
-  }
-
-  sortList(){
-    let newList = this.state.list;
-    newList.sort((a, b) => parseFloat(b.init) - parseFloat(a.init));
-
-    this.setState((state) => {
-      return {list: newList};
-    });
-  }
-
+  // Increments tcurrent +1, changing what is displayed in the currentPane
   nextPlayer(){
 
     if(this.state.current === this.state.list.length - 1){
@@ -66,6 +70,7 @@ class App extends Component {
     });
   }
 
+  // Shows or hides AddPane 
   toggleAddPane(){
     this.setState((state) => {
       return {addPaneOpen: !state.addPaneOpen};
@@ -73,6 +78,7 @@ class App extends Component {
   }
 
 
+  // Adds an object to props list
   addPane = (dataToAdd) => {
 
     this.setState(prevState => ({
@@ -81,6 +87,8 @@ class App extends Component {
 
   }
 
+  // This function will be called onClick
+  // It will remove an item from the props list with a key value equal to dataToRemove
   removeButton = (dataToRemove) =>{
 
     var newList = [...this.state.list];
@@ -101,6 +109,7 @@ class App extends Component {
   }
 
   render() {
+
     let addPane;
 
     if (this.state.list[this.state.current] === undefined) return null;
@@ -116,13 +125,24 @@ class App extends Component {
       <Container className="app"> 
         {addPane}
         <Row className="Header">
-          <HeaderPane previous={this.previousPlayer} next={this.nextPlayer} add={this.toggleAddPane} sort={this.sortList} />
+          <HeaderPane 
+            previous={this.previousPlayer} 
+            next={this.nextPlayer} 
+            add={this.toggleAddPane} 
+            sort={this.sortList} 
+          />
         </Row>
         <Row className="Current">
-          <CurrentPane remove={this.removeButton} currentPlayer={this.state.currentPlayer}/>
+          <CurrentPane 
+            remove={this.removeButton} 
+            currentPlayer={this.state.currentPlayer}
+          />
         </Row>
         <Row className="List">
-          <ListPane remove={this.removeButton} list={this.state.list}/>
+          <ListPane 
+            remove={this.removeButton} 
+            list={this.state.list}
+          />
         </Row>
       </Container>
     )
