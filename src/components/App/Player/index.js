@@ -2,24 +2,36 @@ import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
 import './styles.css'
 
-const Player = (props) => {
+class Player extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    };
+    this.handleRemove = this.handleRemove.bind(this);
+  }
 
+  handleRemove(event) {
+
+      this.props.remove(this.props.ukey);
+  }
+
+  render() {
   return (
     <Container className="player-card">
       <Row>
         <Col></Col>
         <Col>
-          {JSON.stringify(props.name)}
-          {JSON.stringify(props.key)}
-          {JSON.stringify(props.type)}
-          {JSON.stringify(props.init)}
+          {JSON.stringify(this.props.name)}
+          {JSON.stringify(this.props.ukey)}
+          {JSON.stringify(this.props.type)}
+          {JSON.stringify(this.props.init)}
         </Col>
         <Col>
-          <div className="close">X</div>
+          <button onClick={this.handleRemove} className="close">X</button>
         </Col>
       </Row>
     </Container>
-  )
+  )}
 }
 
 export default Player;

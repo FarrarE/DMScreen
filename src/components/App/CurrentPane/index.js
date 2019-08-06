@@ -14,8 +14,10 @@ const CurrentPane = (props) => {
           <Col>        
             <Player name={props.currentPlayer.name} 
               key={props.currentPlayer.key} 
+              ukey={props.currentPlayer.key}
               type={props.currentPlayer.type} 
               init={props.currentPlayer.init} 
+              remove={props.remove}
             />
           </Col>
           <Col></Col>

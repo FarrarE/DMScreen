@@ -73,7 +73,7 @@ class App extends Component {
   }
 
 
-  addPaneCallback = (dataToAdd) => {
+  addPane = (dataToAdd) => {
 
     this.setState(prevState => ({
       list: [...prevState.list, dataToAdd]
@@ -81,15 +81,23 @@ class App extends Component {
 
   }
 
-  removeButtonCallback = (dataToRemove) =>{
+  removeButton = (dataToRemove) =>{
 
     var newList = [...this.state.list];
-    var index = newList.indexOf(dataToRemove.target.value)
 
-    if (index !== -1) {
-      newList.splice(index, 1);
+    function CallbackFunction(task) {
+
+      return task.key === dataToRemove;
+    }
+
+    var task = newList.find(CallbackFunction);
+
+
+    if (task) {
+      newList.splice(dataToRemove, 1);
       this.setState({list: newList});
     }
+
   }
 
   render() {
@@ -100,7 +108,7 @@ class App extends Component {
       this.state.currentPlayer = this.state.list[this.state.current]
 
     if(this.state.addPaneOpen){
-      addPane = <AddPane add={this.addPaneCallback} toggle={this.toggleAddPane} length={this.state.list.length}/>
+      addPane = <AddPane add={this.addPane} toggle={this.toggleAddPane} length={this.state.list.length}/>
     }
     
     return (
@@ -111,10 +119,10 @@ class App extends Component {
           <HeaderPane previous={this.previousPlayer} next={this.nextPlayer} add={this.toggleAddPane} sort={this.sortList} />
         </Row>
         <Row className="Current">
-          <CurrentPane currentPlayer={this.state.currentPlayer}/>
+          <CurrentPane remove={this.removeButton} currentPlayer={this.state.currentPlayer}/>
         </Row>
         <Row className="List">
-          <ListPane list={this.state.list}/>
+          <ListPane remove={this.removeButton} list={this.state.list}/>
         </Row>
       </Container>
     )
