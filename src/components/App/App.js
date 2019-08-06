@@ -16,6 +16,7 @@ class App extends Component {
     this.previousPlayer = this.previousPlayer.bind(this);
     this.nextPlayer = this.nextPlayer.bind(this);
     this.toggleAddPane = this.toggleAddPane.bind(this);
+    this.setCurrent = this.setCurrent.bind(this);
     this.populateList();
     this.state = {
       current: 0,
@@ -91,7 +92,7 @@ class App extends Component {
   // It will remove an item from the props list with a key value equal to dataToRemove
   removeButton = (dataToRemove) =>{
 
-    var newList = [...this.state.list];
+    var newList = this.state.list;
 
     function CallbackFunction(task) {
 
@@ -108,13 +109,18 @@ class App extends Component {
 
   }
 
+  setCurrent = () =>{
+
+    if (this.state.list[this.state.current] != undefined){
+      this.state.currentPlayer = this.state.list[this.state.current]
+    }
+  }
+
   render() {
 
     let addPane;
 
-    if (this.state.list[this.state.current] === undefined) return null;
-    else
-      this.state.currentPlayer = this.state.list[this.state.current]
+    this.setCurrent();
 
     if(this.state.addPaneOpen){
       addPane = <AddPane add={this.addPane} toggle={this.toggleAddPane} length={this.state.list.length}/>
