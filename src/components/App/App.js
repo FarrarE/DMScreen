@@ -92,21 +92,19 @@ class App extends Component {
   // It will remove an item from the props list with a key value equal to dataToRemove
   removeButton = (dataToRemove) =>{
 
-    var newList = this.state.list;
+    let newList = this.state.list;
+    let index = -1;
 
-    function CallbackFunction(task) {
-
-      return task.key === dataToRemove;
-    }
-
-    var task = newList.find(CallbackFunction);
-
-
-    if (task) {
-      newList.splice(dataToRemove, 1);
+    for (var i=0; i < newList.length; i++) {
+      if (newList[i].key === dataToRemove) {
+          index = i;
+      }
+    } 
+    
+    if(index !== -1){
+      newList.splice(index, 1);
       this.setState({list: newList});
     }
-
   }
 
   setCurrent = () =>{
