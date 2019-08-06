@@ -19,14 +19,19 @@ class Player extends React.Component {
   return (
     <Container className="player-card">
       <Row>
-        <Col></Col>
-        <Col>
-          {JSON.stringify(this.props.name)}
-          {JSON.stringify(this.props.ukey)}
-          {JSON.stringify(this.props.type)}
-          {JSON.stringify(this.props.init)}
+        <Col md="3">
+        <label>Name</label><br></br>
+          {this.props.name}
         </Col>
-        <Col>
+        <Col md="3">
+          <label>Type</label><br></br>
+          {this.props.type}
+        </Col>
+        <Col md="3">
+          <label>Initiative</label><br></br>
+          {this.props.init}
+        </Col>
+        <Col className="close-col" md="3">
           <button onClick={this.handleRemove} className="close">X</button>
         </Col>
       </Row>

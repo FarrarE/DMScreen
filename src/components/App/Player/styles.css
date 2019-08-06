@@ -15,9 +15,12 @@
 }
 
 .close{
-  margin-right:10px;
   display:none;
-  border: solid 1px;
-  border-radius:20%;
-  padding:1px;
 }
+
+.close-col{
+  margin-top:auto;
+  margin-bottom:auto;
+  text-align: right;
+}
+
