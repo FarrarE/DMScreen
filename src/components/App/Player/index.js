@@ -21,9 +21,9 @@ class Player extends React.Component {
     let icon;
 
     if(this.props.type === "monster")
-      icon = monster;
+      icon = <img className="monster-icon" src={monster} alt={"..."}></img> 
     else  
-      icon = player;
+      icon = <img className="player-icon" src={player} alt={"..."}></img> 
     
   return (
     <Container className="player-card">
@@ -31,8 +31,7 @@ class Player extends React.Component {
  
 
         <Col className="icon-col" md="1">
-
-          <img src={icon} alt={"..."}></img> 
+          {icon}
         </Col>
         <Col md="3">
 
