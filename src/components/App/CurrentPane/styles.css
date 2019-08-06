@@ -5,3 +5,15 @@
   margin-top: 3px;
   margin-bottom: 3px;
 }
+
+.prev-col{
+  margin-top:auto;
+  margin-bottom:auto;
+  text-align: right;
+}
+
+.next-col{
+  margin-top:auto;
+  margin-bottom:auto;
+  text-align: left;
+}
