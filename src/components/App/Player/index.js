@@ -29,8 +29,12 @@ class Player extends React.Component {
   return (
     <Container className="player-card">
       <Row>
-        <Col className="icon-col" md="1">
-          {icon}
+        <Col md="1">
+          <div className="icon-col" >
+            <div className="icon-div">
+              {icon}
+            </div>
+          </div>
         </Col>
         <Col md="3">
           <label><h5>Name</h5></label><br></br>
