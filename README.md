@@ -14,7 +14,7 @@ These features are intended to be implemented for v1.0. Items with a ✅ have be
 6. Track current Turn. ✅
 7. Sort List by initiative. ✅
 8. Turn iterator. ✅
-9. Store List.
+9. Store List. ✅
 
 
 ## Stretch Goals
