@@ -1,8 +1,11 @@
 import React from 'react';
-import { Container, Row, TabPane, TabContent, Nav, NavItem, NavLink } from 'reactstrap';
+import { Container, Row, Col, TabPane, TabContent, Nav, NavItem, NavLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import classnames from 'classnames';
+import monster from '../Player/assets/Orc.png';
+import player from '../Player/assets/Player.png';
+
 
 class AddPane extends React.Component {
   constructor(props) {
@@ -91,8 +94,20 @@ class AddPane extends React.Component {
               <input type="text" placeholder="Initiative" onChange={this.handleInitChange}/>
             </Row>
             <Row form={true}>
-              <button onClick={this.handleSubmitPlayer}>Submit</button>
-              <button onClick={this.props.toggle}>Cancel</button>
+              <Col></Col>
+              <Col>
+                <img src={player} alt={"..."}></img>
+              </Col>
+              <Col></Col>
+            </Row>
+            <Row form={true}>
+              <Col>
+                <button onClick={this.handleSubmitPlayer}>Submit</button>
+              </Col>
+              <Col></Col>
+              <Col>
+                <button onClick={this.props.toggle}>Cancel</button>
+              </Col>
             </Row>
           </TabPane>
           <TabPane tabId="monster">
@@ -103,8 +118,20 @@ class AddPane extends React.Component {
               <input type="text" placeholder="Initiative" onChange={this.handleInitChange} />
             </Row>
             <Row form={true}>
-              <button onClick={this.handleSubmitMonster}>Submit</button>
-              <button onClick={this.props.toggle}>Cancel</button>
+              <Col></Col>
+              <Col>
+                <img src={monster} alt={"..."}></img>
+              </Col>
+              <Col></Col>
+            </Row>
+            <Row form={true}>
+              <Col>
+                <button onClick={this.handleSubmitMonster}>Submit</button>
+              </Col>
+              <Col></Col>
+              <Col>
+                <button onClick={this.props.toggle}>Cancel</button>
+              </Col>
             </Row>
           </TabPane>
         </TabContent>
