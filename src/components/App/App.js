@@ -36,7 +36,16 @@ class App extends Component {
 
   saveList(){
     
-
+    alert(JSON.stringify(this.state.list));
+    fetch('/api/save', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({list: this.state.list})
+    }).then(res=>res.json())
+      .then(res => console.log(res));
   }
 
   // Sorts the props list in descending order based on the init property
