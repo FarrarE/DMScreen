@@ -36,7 +36,6 @@ class App extends Component {
 
   saveList(){
     
-    alert(JSON.stringify(this.state.list));
     fetch('/api/save', {
       method: 'post',
       headers: {
