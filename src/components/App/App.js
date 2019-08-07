@@ -12,6 +12,7 @@ class App extends Component {
     super(props);
     
     this.populateList = this.populateList.bind(this);
+    this.saveList = this.saveList.bind(this);
     this.sortList = this.sortList.bind(this);
     this.previousPlayer = this.previousPlayer.bind(this);
     this.nextPlayer = this.nextPlayer.bind(this);
@@ -31,6 +32,11 @@ class App extends Component {
     fetch(`/api/list`)
       .then(response => response.json())
       .then(state => this.setState(state));
+  }
+
+  saveList(){
+    
+
   }
 
   // Sorts the props list in descending order based on the init property
@@ -133,6 +139,8 @@ class App extends Component {
         {addPane}
         <Row className="Header">
           <HeaderPane 
+            load={this.populateList}
+            save={this.saveList}
             add={this.toggleAddPane} 
             sort={this.sortList} 
           />

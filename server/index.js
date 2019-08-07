@@ -6,15 +6,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post('/api/add', (req, res) => {
-
+app.post('/api/save', (req, res) => {
 
 });
 
 app.get('/api/list', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.json({ list: data.list});
-
 });
 
 app.listen(3001, () =>
