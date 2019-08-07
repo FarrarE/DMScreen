@@ -43,8 +43,7 @@ class App extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({list: this.state.list})
-    }).then(res=>res.json())
-      .then(res => console.log(res));
+    });
   }
 
   // Sorts the props list in descending order based on the init property
