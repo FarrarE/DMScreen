@@ -8,10 +8,21 @@ class Player extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      name: props.name,
+      type: props.type,
+      key: props.key,
+      init: props.init
     };
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  handleInputChange(event){
+    this.setState({
+      init: event.target.value
+    });
+  }
+  
   handleRemove(event) {
 
     this.props.remove(this.props.ukey);
@@ -20,6 +31,10 @@ class Player extends React.Component {
   render() {
 
     let icon;
+    let name = this.state.name;
+    let key = this.state.key;
+    let type = this.state.type;
+    let init = this.state.init;
 
     if(this.props.type === "monster")
       icon = <img className="monster-icon" src={monster} alt={"..."}></img> 
@@ -38,15 +53,19 @@ class Player extends React.Component {
         </Col>
         <Col md="3">
           <label><h5>Name</h5></label><br></br>
-          {this.props.name}
+          {name}
         </Col>
         <Col md="3">
           <label><h5>Type</h5></label><br></br>
-          {this.props.type}
+          {type}
         </Col>
         <Col md="3">
           <label><h5>Initiative</h5></label><br></br>
-          {this.props.init}
+          <input
+            type="text"
+            value={init}
+            onChange={e => this.handleInputChange(e)}
+          />
         </Col>
         <Col className="close-col" md="1">
           <button onClick={this.handleRemove} className="close">X</button>
