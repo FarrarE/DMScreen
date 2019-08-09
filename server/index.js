@@ -25,6 +25,10 @@ app.get('/api/list', (req, res) => {
   res.json({ list: data.list});
 });
 
+app.get('/*', (req, res) => {
+  console.log("wrong route")
+});
+
 app.listen(3001, () =>
   console.log('Express server is running on localhost:3001')
 );
