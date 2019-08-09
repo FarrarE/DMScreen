@@ -1,11 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-//const data = require('./data/data.json');
-const data = require('./data/sample.json');
+const data = require('./data/data.json');
+//const data = require('./server/data/sample.json');
 
+const path = require("path");
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(express.static(path.join(__dirname, "/build")));
 
 app.post('/api/save', (req, res) => {
   console.log(req.body.list);
@@ -25,8 +28,8 @@ app.get('/api/list', (req, res) => {
   res.json({ list: data.list});
 });
 
-app.get('/*', (req, res) => {
-  console.log("wrong route")
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build/index.html"));
 });
 
 app.listen(3001, () =>
