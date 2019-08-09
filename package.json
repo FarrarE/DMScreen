@@ -11,11 +11,12 @@
     "reactstrap": "^8.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
+    "start": "nodemon index.js ",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node-env-run server --exec nodemon",
     "dev": "run-p server start"
   },
   "eslintConfig": {
