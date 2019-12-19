@@ -7,10 +7,9 @@ import CurrentPane from "./CurrentPane";
 import ListPane from "./ListPane";
 import AddPane from './AddPane';
 
-function App(){
-  const [current, setCurrent] = useState("");
+export default function App(){
   const [list, setList] = useState(null);
-  const [currentPlayer, setCurrentPlayer] = useState({});
+  const [current, setCurrent] = useState(0);
   const [addPaneOpen, setAddPaneOpen] = useState(false);
 
   useEffect(() => {
@@ -19,10 +18,7 @@ function App(){
       populateList();
     }
 
-    if(!current && list){
-      setCurrentPlayer(list[0]);
-    }
-  }, [list]);
+  }, []);
 
   // Gets a list from the server api route and saves it to props list
   function populateList(event) {
@@ -57,17 +53,19 @@ function App(){
 
   // Decrements current -1, changing what is displayed in the currentPane
   function previousPlayer(){
-    setCurrent(list.length - 1)
+    if(current === 0){
+      setCurrent(list.length - 1);
+    }else
+      setCurrent(current - 1);
   }
 
   // Increments tcurrent +1, changing what is displayed in the currentPane
   function nextPlayer(){
 
     if(current === list.length - 1){
-      setCurrent(-1);
-    }
-
-    setCurrent(current + 1);
+      setCurrent(0);
+    }else
+      setCurrent(current + 1);
   }
 
   // Shows or hides AddPane 
@@ -78,7 +76,6 @@ function App(){
 
   // Adds an object to props list
   function addPane(dataToAdd){
-
     setList([...list, dataToAdd]);
   }
 
@@ -100,38 +97,38 @@ function App(){
       setList(newList);
     }
 
-    if(list.length === 0)
-      setCurrentPlayer({})
   }
 
   return (
 
     <Container className="app"> 
     {addPaneOpen && <AddPane />}
-      <Row className="Header">
-        <HeaderPane 
-          load={populateList}
-          save={saveList}
-          add={toggleAddPane} 
-          sort={sortList} 
-        />
-      </Row>
-      <Row className="Current">
-        <CurrentPane 
-          previous={previousPlayer} 
-          next={nextPlayer} 
-          remove={removeButton} 
-          currentPlayer={currentPlayer}
-        />
-      </Row>
-      <Row className="List">
-        <ListPane 
-          remove={removeButton} 
-          players={list}
-        />
-      </Row>
+      {list &&
+      <div>
+        <Row className="Header">
+          <HeaderPane 
+            load={populateList}
+            save={saveList}
+            add={toggleAddPane} 
+            sort={sortList} 
+          />
+        </Row>
+        <Row className="Current">
+          <CurrentPane 
+            previous={previousPlayer} 
+            next={nextPlayer} 
+            remove={removeButton} 
+            currentPlayer={list[current]}
+          />
+        </Row>
+        <Row className="List">
+          <ListPane 
+            remove={removeButton} 
+            players={list}
+          />
+        </Row>
+      </div>
+      }
     </Container>
   )
 }
-
-export default App;
