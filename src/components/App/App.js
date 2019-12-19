@@ -6,17 +6,23 @@ import HeaderPane from "./HeaderPane";
 import CurrentPane from "./CurrentPane";
 import ListPane from "./ListPane";
 import AddPane from './AddPane';
-import { JS } from "aws-amplify";
 
 function App(){
   const [current, setCurrent] = useState("");
   const [list, setList] = useState(null);
-  const [currentPlayer, setCurretPlayer] = useState({});
+  const [currentPlayer, setCurrentPlayer] = useState({});
   const [addPaneOpen, setAddPaneOpen] = useState(false);
 
   useEffect(() => {
-    populateList();
-  }, []);
+
+    if(!list){
+      populateList();
+    }
+
+    if(!current && list){
+      setCurrentPlayer(list[0]);
+    }
+  }, [list]);
 
   // Gets a list from the server api route and saves it to props list
   function populateList(event) {
@@ -95,7 +101,7 @@ function App(){
     }
 
     if(list.length === 0)
-      setCurretPlayer({})
+      setCurrentPlayer({})
   }
 
   return (
