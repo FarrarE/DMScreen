@@ -11,7 +11,7 @@ function Player(props){
       setIcon(<img className="monster-icon" src={monster} alt={"..."}></img>);
     else  
       setIcon(<img className="player-icon" src={player} alt={"..."}></img>);
-  },[props.player]);
+  },[]);
 
   function handleRemove(event) {
     props.remove(props.player.ukey);
