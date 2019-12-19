@@ -8,7 +8,7 @@ import ListPane from "./ListPane";
 import AddPane from './AddPane';
 
 export default function App(){
-  const [list, setList] = useState(null);
+  const [list, setList] = useState();
   const [current, setCurrent] = useState(0);
   const [addPaneOpen, setAddPaneOpen] = useState(false);
 
@@ -18,7 +18,7 @@ export default function App(){
       populateList();
     }
 
-  }, []);
+  }, [list]);
 
   // Gets a list from the server api route and saves it to props list
   function populateList(event) {
@@ -75,7 +75,7 @@ export default function App(){
 
 
   // Adds an object to props list
-  function addPane(dataToAdd){
+  function addNewPlayer(dataToAdd){
     setList([...list, dataToAdd]);
   }
 
@@ -102,7 +102,7 @@ export default function App(){
   return (
 
     <Container className="app"> 
-    {addPaneOpen && <AddPane />}
+    {addPaneOpen && <AddPane add={addNewPlayer} toggle={toggleAddPane} />}
       {list &&
       <div>
         <Row className="Header">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, TabPane, TabContent, Nav, NavItem, NavLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
@@ -7,62 +7,50 @@ import monster from '../Player/assets/Orc.png';
 import player from '../Player/assets/Player.png';
 
 
-class AddPane extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTab: 'player',
-      name:"",
-      init:""
-    };
-    this.toggle = this.toggle.bind(this);
-    this.handleSubmitPlayer = this.handleSubmitPlayer.bind(this);
-    this.handleSubmitMonster = this.handleSubmitMonster.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleInitChange = this.handleInitChange.bind(this);
-  }
+export default function AddPane(props){
+  const [activeTab, setActiveTab] = useState();
+  const [name, setName] = useState();
+  const [init, setInit] = useState();
 
-  toggle(tab) {
-    if (this.state.activeTab !== tab) {
-      this.setState({
-        activeTab: tab
-      });
+
+  function toggle(tab) {
+    if (activeTab !== tab) {
+      setActiveTab(tab)
     }
   }
 
-  handleSubmitPlayer(event) {
+  function handleSubmitPlayer(event) {
     let user = {
-      name: this.state.name,
-      key: this.props.length,
+      name: name,
+      key: props.length,
       type: "player",
-      init: this.state.init
+      init: init
     }
 
-    this.props.add(user);
-    this.props.toggle();
+    props.add(user);
+    props.toggle();
   }
 
-  handleSubmitMonster(event) {
+  function handleSubmitMonster(event) {
     let user = {
-      name: this.state.name,
+      name: name,
       key: "",
       type: "monster",
-      init: this.state.init
+      init: init
     }
     
-    this.props.add(user);
-    this.props.toggle();
+    props.add(user);
+    props.toggle();
   }
 
-  handleNameChange = event => {
-    this.setState({name: event.target.value});
+  function handleNameChange(event){
+    setName(event.target.value)
   }
 
-  handleInitChange = event => {
-    this.setState({init: event.target.value});
+  function handleInitChange(event) {
+    setInit(event.target.value);
   }
 
-  render() {
     
     return (
 
@@ -70,28 +58,28 @@ class AddPane extends React.Component {
         <Nav tabs>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === 'player' })}
-              onClick={() => { this.toggle('player'); }}
+              className={classnames({ active: activeTab === 'player' })}
+              onClick={() => { toggle('player'); }}
             >
               Player
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === 'monster' })}
-              onClick={() => { this.toggle('monster'); }}
+              className={classnames({ active: activeTab === 'monster' })}
+              onClick={toggle('monster')}
             >
               Monster
             </NavLink>
           </NavItem>
         </Nav>
-        <TabContent activeTab={this.state.activeTab}>
+        <TabContent activeTab={activeTab}>
           <TabPane tabId="player">
             <Row form={true}>
-              <input type="text" placeholder="Name" onChange={this.handleNameChange}/>
+              <input type="text" placeholder="Name" onChange={handleNameChange}/>
             </Row>
             <Row form={true}>
-              <input type="text" placeholder="Initiative" onChange={this.handleInitChange}/>
+              <input type="text" placeholder="Initiative" onChange={handleInitChange}/>
             </Row>
             <Row form={true}>
               <Col></Col>
@@ -102,20 +90,20 @@ class AddPane extends React.Component {
             </Row>
             <Row form={true}>
               <Col>
-                <button onClick={this.handleSubmitPlayer}>Submit</button>
+                <button onClick={handleSubmitPlayer}>Submit</button>
               </Col>
               <Col></Col>
               <Col>
-                <button onClick={this.props.toggle}>Cancel</button>
+                <button onClick={props.toggle}>Cancel</button>
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="monster">
             <Row form={true}>
-              <input type="text" placeholder="Name" onChange={this.handleNameChange} />
+              <input type="text" placeholder="Name" onChange={handleNameChange} />
             </Row>
             <Row form={true}>
-              <input type="text" placeholder="Initiative" onChange={this.handleInitChange} />
+              <input type="text" placeholder="Initiative" onChange={handleInitChange} />
             </Row>
             <Row form={true}>
               <Col></Col>
@@ -126,18 +114,15 @@ class AddPane extends React.Component {
             </Row>
             <Row form={true}>
               <Col>
-                <button onClick={this.handleSubmitMonster}>Submit</button>
+                <button onClick={handleSubmitMonster}>Submit</button>
               </Col>
               <Col></Col>
               <Col>
-                <button onClick={this.props.toggle}>Cancel</button>
+                <button onClick={props.toggle}>Cancel</button>
               </Col>
             </Row>
           </TabPane>
         </TabContent>
       </Container>
     );
-  }
 }
-
-export default AddPane;
