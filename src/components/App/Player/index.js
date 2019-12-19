@@ -61,11 +61,7 @@ class Player extends React.Component {
         </Col>
         <Col md="3">
           <label><h5>Initiative</h5></label><br></br>
-          <input
-            type="text"
-            value={init}
-            onChange={e => this.handleInputChange(e)}
-          />
+          {init}
         </Col>
         <Col className="close-col" md="1">
           <button onClick={this.handleRemove} className="close">X</button>
