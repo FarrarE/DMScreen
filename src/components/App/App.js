@@ -55,7 +55,7 @@ function App(){
 
   // Shows or hides AddPane 
   function toggleAddPane(){
-    setAddPaneOpen(!addPane);
+    setAddPaneOpen(!addPaneOpen);
   }
 
 
@@ -90,7 +90,7 @@ function App(){
   return (
 
     <Container className="app"> 
-      {addPane}
+    {addPaneOpen && <AddPane />}
       <Row className="Header">
         <HeaderPane 
           load={populateList}
