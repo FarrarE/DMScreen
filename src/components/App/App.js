@@ -6,35 +6,46 @@ import HeaderPane from "./HeaderPane";
 import CurrentPane from "./CurrentPane";
 import ListPane from "./ListPane";
 import AddPane from './AddPane';
+import { JS } from "aws-amplify";
 
 function App(){
   const [current, setCurrent] = useState("");
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(null);
   const [currentPlayer, setCurretPlayer] = useState({});
   const [addPaneOpen, setAddPaneOpen] = useState(false);
 
+  useEffect(() => {
+    populateList();
+  }, []);
+
   // Gets a list from the server api route and saves it to props list
   function populateList(event) {
-
+    setList([
+      {
+        name:"test1",  
+        key:"1", 
+        ukey:"1" ,
+        type:"monster",
+        init:"5" 
+      },
+      {
+        name:"test2",  
+        key:"2", 
+        ukey:"2" ,
+        type:"player",
+        init:"15" 
+      }
+    ]);
   }
 
   function saveList(){
     
-    fetch('/api/save', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({list: list})
-    });
   }
 
   // Sorts the props list in descending order based on the init property
   function sortList(){
     let newList = list;
     newList.sort((a, b) => parseFloat(b.init) - parseFloat(a.init));
-
     setList(newList);
   }
 
@@ -110,7 +121,7 @@ function App(){
       <Row className="List">
         <ListPane 
           remove={removeButton} 
-          list={list}
+          players={list}
         />
       </Row>
     </Container>

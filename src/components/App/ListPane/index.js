@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Container } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import Player from '../Player';
 
+function ListPane(props) {
+  const [players, setPlayers] = useState(null);
 
-const ListPane = (props) => {
-   
+  useEffect(() => {
+      loadPlayers();
+  }, [props.players]);
+
+  async function loadPlayers(){
+    setPlayers(props.players);    
+  }
+
   return (
-      <Container className="list-pane">
-        <Player className="player" name="test"  key="0" ukey="0" type="player" init="0" remove={props.remove}/>
-      </Container>
+    <Container className="list-pane">
+      {players && players.map(player => <Player 
+        className="player"
+        player={player}
+        remove={props.remove}/>
+      )}
+    </Container>
   )
 }
 
