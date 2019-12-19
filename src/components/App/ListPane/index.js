@@ -6,17 +6,10 @@ import Player from '../Player';
 
 
 const ListPane = (props) => {
-  
-  let list;
    
-  if(props.list){
-    list = props.list.map(({name, key, type, init}) => 
-      <Player className="player" name={name}  key={key} ukey={key} type={type} init={init} remove={props.remove}/>
-    )
-  }
   return (
       <Container className="list-pane">
-        {list}
+        <Player className="player" name="test"  key="0" ukey="0" type="player" init="0" remove={props.remove}/>
       </Container>
   )
 }
