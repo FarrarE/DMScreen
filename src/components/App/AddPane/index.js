@@ -18,10 +18,15 @@ export default function AddPane(props){
     }
   }
 
+  function genUkey(seed){
+    return Math.floor((Math.random() * 99999) + 10000) + seed + Math.floor((Math.random() * 99999) + 10000);
+  }
+
   function handleSubmitPlayer(event) {
     let user = {
       name: name,
       key: props.length,
+      ukey: genUkey(name),
       type: "player",
       init: init
     }
@@ -33,7 +38,8 @@ export default function AddPane(props){
   function handleSubmitMonster(event) {
     let user = {
       name: name,
-      key: "",
+      key: props.length,
+      ukey: genUkey(name),
       type: "monster",
       init: init
     }
