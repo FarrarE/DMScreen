@@ -12,7 +12,7 @@ function Player(props){
     else  
       setIcon(<img className="player-icon" src={player} alt={"..."}></img>);
 
-  },[]);
+  },[props.player]);
 
   function handleRemove(event) {
     props.remove(props.player.ukey);
