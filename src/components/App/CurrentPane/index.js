@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Container, Col, Row } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
@@ -12,12 +12,9 @@ const CurrentPane = (props) => {
           <Col className="prev-col" md="3">
             <button onClick={props.previous} type="submit">Prev</button>
           </Col>
-          <Col md="6">        
-            <Player name={props.currentPlayer.name} 
-              key={props.currentPlayer.key} 
-              ukey={props.currentPlayer.key}
-              type={props.currentPlayer.type} 
-              init={props.currentPlayer.init} 
+          <Col md="6">   
+            <Player 
+              player={props.currentPlayer} 
               remove={props.remove}
             />
           </Col>

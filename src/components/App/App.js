@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from "react";
 import { Container, Row} from 'reactstrap';
 import './App.css';
 
@@ -7,168 +7,111 @@ import CurrentPane from "./CurrentPane";
 import ListPane from "./ListPane";
 import AddPane from './AddPane';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.populateList = this.populateList.bind(this);
-    this.saveList = this.saveList.bind(this);
-    this.sortList = this.sortList.bind(this);
-    this.previousPlayer = this.previousPlayer.bind(this);
-    this.nextPlayer = this.nextPlayer.bind(this);
-    this.toggleAddPane = this.toggleAddPane.bind(this);
-    this.setCurrent = this.setCurrent.bind(this);
-    this.populateList();
-    this.state = {
-      current: 0,
-      list: [],
-      currentPlayer: {},
-      addPaneOpen: false
-    };
-  }
+export default function App(){
+  const [list, setList] = useState();
+  const [current, setCurrent] = useState(0);
+  const [addPaneOpen, setAddPaneOpen] = useState(false);
+
+  useEffect(() => {
+
+    if(!list){
+      populateList();
+    }
+
+  }, [list]);
 
   // Gets a list from the server api route and saves it to props list
-  populateList(event) {
-    fetch(`/api/list`)
-      .then(response => response.json())
-      .then(state => this.setState(state));
+  function populateList(event) {
+    setList(JSON.parse(localStorage.getItem("playerList")));
   }
 
-  saveList(){
-    
-    fetch('/api/save', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({list: this.state.list})
-    });
+  function saveList(){
+    localStorage.setItem('playerList', JSON.stringify(list));
   }
 
   // Sorts the props list in descending order based on the init property
-  sortList(){
-    let newList = this.state.list;
-    newList.sort((a, b) => parseFloat(b.init) - parseFloat(a.init));
-
-    this.setState((state) => {
-      return {list: newList};
-    });
+  function sortList(){
+    let newList = [...list];
+    newList.sort((a, b) => parseInt(b.init) - parseInt(a.init));
+    setList(newList);
   }
 
   // Decrements current -1, changing what is displayed in the currentPane
-  previousPlayer(){
-
-    if(this.state.current === 0){
-      this.setState((state) => {
-        return {current: state.list.length};
-      });
-    }
-
-    this.setState((state) => {
-      return {current: state.current - 1};
-    });
+  function previousPlayer(){
+    if(current === 0){
+      setCurrent(list.length - 1);
+    }else
+      setCurrent(current - 1);
   }
 
   // Increments tcurrent +1, changing what is displayed in the currentPane
-  nextPlayer(){
+  function nextPlayer(){
 
-    if(this.state.current === this.state.list.length - 1){
-      this.setState((state) => {
-        return {current: -1};
-      });
-    }
-
-    this.setState((state) => {
-      return {current: state.current + 1};
-    });
+    if(current === list.length - 1){
+      setCurrent(0);
+    }else
+      setCurrent(current + 1);
   }
 
   // Shows or hides AddPane 
-  toggleAddPane(){
-    this.setState((state) => {
-      return {addPaneOpen: !state.addPaneOpen};
-    });
+  function toggleAddPane(){
+    setAddPaneOpen(!addPaneOpen);
   }
 
 
   // Adds an object to props list
-  addPane = (dataToAdd) => {
-
-    this.setState(prevState => ({
-      list: [...prevState.list, dataToAdd]
-    }));
-
+  function addNewPlayer(dataToAdd){
+    setList([...list, dataToAdd]);
   }
 
   // This function will be called onClick
   // It will remove an item from the props list with a key value equal to dataToRemove
-  removeButton = (dataToRemove) =>{
-
-    let newList = this.state.list;
+  function removeButton(dataToRemove){
+    let newList = [...list];
     let index = -1;
-
     for (var i=0; i < newList.length; i++) {
-      if (newList[i].key === dataToRemove) {
+      if (newList[i].ukey === dataToRemove) {
           index = i;
       }
     } 
     
     if(index !== -1){
       newList.splice(index, 1);
-      this.setState({list: newList});
+      setList(newList);
     }
 
-    if(this.state.list.length === 0)
-    this.setState({currentPlayer: {}});
   }
 
-  setCurrent = () =>{
+  return (
 
-    if (this.state.list[this.state.current] != undefined){
-      this.state.currentPlayer = this.state.list[this.state.current]
-    }
-  }
-
-  render() {
-
-    let addPane;
-
-    this.setCurrent();
-
-    if(this.state.addPaneOpen){
-      addPane = <AddPane add={this.addPane} toggle={this.toggleAddPane} length={this.state.list.length}/>
-    }
-    
-    return (
-  
-      <Container className="app"> 
-        {addPane}
+    <Container className="app"> 
+    {addPaneOpen && <AddPane add={addNewPlayer} toggle={toggleAddPane} />}
+      {list &&
+      <div>
         <Row className="Header">
           <HeaderPane 
-            load={this.populateList}
-            save={this.saveList}
-            add={this.toggleAddPane} 
-            sort={this.sortList} 
+            load={populateList}
+            save={saveList}
+            add={toggleAddPane} 
+            sort={sortList} 
           />
         </Row>
         <Row className="Current">
           <CurrentPane 
-            previous={this.previousPlayer} 
-            next={this.nextPlayer} 
-            remove={this.removeButton} 
-            currentPlayer={this.state.currentPlayer}
+            previous={previousPlayer} 
+            next={nextPlayer} 
+            remove={removeButton} 
+            currentPlayer={list[current]}
           />
         </Row>
         <Row className="List">
           <ListPane 
-            remove={this.removeButton} 
-            list={this.state.list}
+            remove={removeButton} 
+            players={list}
           />
         </Row>
-      </Container>
-    )
-  }
+      </div>
+      }
+    </Container>
+  )
 }
-
-export default App;
