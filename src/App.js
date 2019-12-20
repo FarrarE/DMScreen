@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Container, Row} from 'reactstrap';
 import './App.css';
 
-import HeaderPane from "./HeaderPane";
-import CurrentPane from "./CurrentPane";
-import ListPane from "./ListPane";
-import AddPane from './AddPane';
+import HeaderPane from "./components/HeaderPane";
+import CurrentPane from "./components/CurrentPane";
+import ListPane from "./components/ListPane";
+import AddPane from './components/AddPane';
 
 export default function App(){
   const [list, setList] = useState();
