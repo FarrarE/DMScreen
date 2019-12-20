@@ -22,26 +22,15 @@ export default function AddPane(props){
     return Math.floor((Math.random() * 99999) + 10000) + seed + Math.floor((Math.random() * 99999) + 10000);
   }
 
-  function handleSubmitPlayer(event) {
+  function handleSubmitPlayer(type) {
+    alert("ping")
     let user = {
       name: name,
       ukey: genUkey(name),
-      type: "player",
+      type: type,
       init: init
     }
 
-    props.add(user);
-    props.toggle();
-  }
-
-  function handleSubmitMonster(event) {
-    let user = {
-      name: name,
-      ukey: genUkey(name),
-      type: "monster",
-      init: init
-    }
-    
     props.add(user);
     props.toggle();
   }
@@ -92,7 +81,7 @@ export default function AddPane(props){
           </Row>
           <Row form={true}>
             <Col>
-              <button onClick={handleSubmitPlayer}>Submit</button>
+              <button onClick={() => handleSubmitPlayer("player")}>Submit</button>
             </Col>
             <Col></Col>
             <Col>
@@ -116,7 +105,7 @@ export default function AddPane(props){
           </Row>
           <Row form={true}>
             <Col>
-              <button onClick={handleSubmitMonster}>Submit</button>
+              <button onClick={() => handleSubmitPlayer("monster")}>Submit</button>
             </Col>
             <Col></Col>
             <Col>
