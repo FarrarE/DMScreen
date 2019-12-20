@@ -25,7 +25,6 @@ export default function AddPane(props){
   function handleSubmitPlayer(event) {
     let user = {
       name: name,
-      key: props.length,
       ukey: genUkey(name),
       type: "player",
       init: init
@@ -38,7 +37,6 @@ export default function AddPane(props){
   function handleSubmitMonster(event) {
     let user = {
       name: name,
-      key: props.length,
       ukey: genUkey(name),
       type: "monster",
       init: init

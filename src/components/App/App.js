@@ -25,14 +25,12 @@ export default function App(){
     setList([
       {
         name:"test1",  
-        key:"1", 
         ukey:"1" ,
         type:"monster",
         init:"5" 
       },
       {
         name:"test2",  
-        key:"2", 
         ukey:"2" ,
         type:"player",
         init:"15" 
@@ -46,8 +44,8 @@ export default function App(){
 
   // Sorts the props list in descending order based on the init property
   function sortList(){
-    let newList = list;
-    newList.sort((a, b) => parseFloat(b.init) - parseFloat(a.init));
+    let newList = [...list];
+    newList.sort((a, b) => parseInt(b.init) - parseInt(a.init));
     setList(newList);
   }
 
@@ -82,12 +80,11 @@ export default function App(){
   // This function will be called onClick
   // It will remove an item from the props list with a key value equal to dataToRemove
   function removeButton(dataToRemove){
-
-    let newList = list;
+    alert(dataToRemove)
+    let newList = [...list];
     let index = -1;
-
     for (var i=0; i < newList.length; i++) {
-      if (newList[i].key === dataToRemove) {
+      if (newList[i].ukey === dataToRemove) {
           index = i;
       }
     } 
