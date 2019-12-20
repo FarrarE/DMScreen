@@ -22,24 +22,11 @@ export default function App(){
 
   // Gets a list from the server api route and saves it to props list
   function populateList(event) {
-    setList([
-      {
-        name:"test1",  
-        ukey:"1" ,
-        type:"monster",
-        init:"5" 
-      },
-      {
-        name:"test2",  
-        ukey:"2" ,
-        type:"player",
-        init:"15" 
-      }
-    ]);
+    setList(JSON.parse(localStorage.getItem("playerList")));
   }
 
   function saveList(){
-    
+    localStorage.setItem('playerList', JSON.stringify(list));
   }
 
   // Sorts the props list in descending order based on the init property
@@ -80,7 +67,6 @@ export default function App(){
   // This function will be called onClick
   // It will remove an item from the props list with a key value equal to dataToRemove
   function removeButton(dataToRemove){
-    alert(dataToRemove)
     let newList = [...list];
     let index = -1;
     for (var i=0; i < newList.length; i++) {
