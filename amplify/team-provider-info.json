@@ -1,0 +1,15 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-dmscreen-prod-215426-authRole",
+            "UnauthRoleArn": "arn:aws:iam::817352689546:role/amplify-dmscreen-prod-215426-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::817352689546:role/amplify-dmscreen-prod-215426-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-dmscreen-prod-215426-deployment",
+            "UnauthRoleName": "amplify-dmscreen-prod-215426-unauthRole",
+            "StackName": "amplify-dmscreen-prod-215426",
+            "StackId": "arn:aws:cloudformation:us-west-2:817352689546:stack/amplify-dmscreen-prod-215426/3027ce10-22ed-11ea-99b5-02f021385fe8",
+            "AmplifyAppId": "d107r991ch24d6"
+        }
+    }
+}
