@@ -32,10 +32,14 @@ export default function App(){
 
   // Sorts the props list in descending order based on the init property
   function sortList(){
+
+    let newList;
+
     if(!list)
-      setList([]);
+      newList = [];
+    else
+      newList = [...list];
       
-    let newList = [...list];
     newList.sort((a, b) => parseInt(b.init) - parseInt(a.init));
     setList(newList);
   }
