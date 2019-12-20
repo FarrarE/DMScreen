@@ -7,10 +7,12 @@ import player from "./assets/Player.png";
 function Player(props){
   const [icon, setIcon] = useState("");
   useEffect(() => {
-    if(props.player.type === "monster")
-      setIcon(<img className="monster-icon" src={monster} alt={"..."}></img>);
-    else  
-      setIcon(<img className="player-icon" src={player} alt={"..."}></img>);
+    if(props.player){
+      if(props.player.type === "monster")
+        setIcon(<img className="monster-icon" src={monster} alt={"..."}></img>);
+      else  
+        setIcon(<img className="player-icon" src={player} alt={"..."}></img>);
+    }
 
   },[props.player]);
 
