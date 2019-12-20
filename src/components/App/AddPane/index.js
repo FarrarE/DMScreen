@@ -8,7 +8,7 @@ import player from '../Player/assets/Player.png';
 
 
 export default function AddPane(props){
-  const [activeTab, setActiveTab] = useState();
+  const [activeTab, setActiveTab] = useState("player");
   const [name, setName] = useState();
   const [init, setInit] = useState();
 
@@ -57,7 +57,7 @@ export default function AddPane(props){
         <NavItem>
           <NavLink
             className={classnames({ active: activeTab === 'player' })}
-            onClick={() => { toggle('player'); }}
+            onClick={() => { toggle('player');} }
           >
             Player
           </NavLink>
@@ -65,7 +65,7 @@ export default function AddPane(props){
         <NavItem>
           <NavLink
             className={classnames({ active: activeTab === 'monster' })}
-            onClick={toggle('monster')}
+            onClick={() => { toggle('monster'); }}
           >
             Monster
           </NavLink>
