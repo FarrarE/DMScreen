@@ -22,6 +22,7 @@ export default function App(){
 
   // Gets a list from the server api route and saves it to props list
   function populateList(event) {
+
     setList(JSON.parse(localStorage.getItem("playerList")));
   }
 
@@ -31,6 +32,9 @@ export default function App(){
 
   // Sorts the props list in descending order based on the init property
   function sortList(){
+    if(!list)
+      setList([]);
+      
     let newList = [...list];
     newList.sort((a, b) => parseInt(b.init) - parseInt(a.init));
     setList(newList);
@@ -58,9 +62,11 @@ export default function App(){
     setAddPaneOpen(!addPaneOpen);
   }
 
-
   // Adds an object to props list
   function addNewPlayer(dataToAdd){
+    if(!list)
+      setList([]);
+
     setList([...list, dataToAdd]);
   }
 
