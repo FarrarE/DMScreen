@@ -86,32 +86,28 @@ export default function App(){
 
     <Container className="app"> 
     {addPaneOpen && <AddPane add={addNewPlayer} toggle={toggleAddPane} />}
-      {list &&
-      <div>
-        <Row className="Header">
-          <HeaderPane 
-            load={populateList}
-            save={saveList}
-            add={toggleAddPane} 
-            sort={sortList} 
-          />
-        </Row>
-        <Row className="Current">
-          <CurrentPane 
-            previous={previousPlayer} 
-            next={nextPlayer} 
-            remove={removeButton} 
-            currentPlayer={list[current]}
-          />
-        </Row>
-        <Row className="List">
-          <ListPane 
-            remove={removeButton} 
-            players={list}
-          />
-        </Row>
-      </div>
-      }
+    <Row className="Header">
+      <HeaderPane 
+        load={populateList}
+        save={saveList}
+        add={toggleAddPane} 
+        sort={sortList} 
+      />
+    </Row>
+    <Row className="Current">
+      <CurrentPane 
+        previous={previousPlayer} 
+        next={nextPlayer} 
+        remove={removeButton} 
+        currentPlayer={list && list[current]}
+      />
+    </Row>
+    <Row className="List">
+      <ListPane 
+        remove={removeButton} 
+        players={list && list}
+      />
+    </Row>
     </Container>
   )
 }
