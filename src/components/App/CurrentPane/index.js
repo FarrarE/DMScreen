@@ -12,7 +12,7 @@ const CurrentPane = (props) => {
           <Col className="prev-col" md="3">
             <button onClick={props.previous} type="submit">Prev</button>
           </Col>
-          <Col md="6">        
+          <Col md="6">   
             <Player 
               player={props.currentPlayer} 
               remove={props.remove}
