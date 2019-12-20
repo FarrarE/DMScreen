@@ -39,7 +39,7 @@ export default function App(){
       newList = [];
     else
       newList = [...list];
-      
+
     newList.sort((a, b) => parseInt(b.init) - parseInt(a.init));
     setList(newList);
   }
@@ -68,10 +68,14 @@ export default function App(){
 
   // Adds an object to props list
   function addNewPlayer(dataToAdd){
-    if(!list)
-      setList([]);
+    let newList;
 
-    setList([...list, dataToAdd]);
+    if(!list)
+      newList = [dataToAdd];
+    else
+      newList = [...list, dataToAdd];
+
+    setList(newList);
   }
 
   // This function will be called onClick
