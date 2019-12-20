@@ -23,7 +23,6 @@ export default function AddPane(props){
   }
 
   function handleSubmitPlayer(type) {
-    alert("ping")
     let user = {
       name: name,
       ukey: genUkey(name),
