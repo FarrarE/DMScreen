@@ -24,26 +24,26 @@ function Player(props){
     <Container className="player-card">
       {props.player && 
         <Row>
-          <Col md="2">
+          <Col xs={{  order: 1, size:2}} md={{ size:2, order: 1 }}>
             <div className="icon-col" >
               <div className="icon-div">
                 {icon}
               </div>
             </div>
           </Col>
-          <Col md="3">
+          <Col xs={{  order: 2, size:3 }} md={{ size:3, order: 1 }}>
             <label><h5>Name</h5></label><br></br>
             {props.player.name}
           </Col>
-          <Col md="3">
+          <Col xs={{  order: 2, size:3 }} md={{ size:3, order: 1 }}>
             <label><h5>Type</h5></label><br></br>
             {props.player.type}
           </Col>
-          <Col md="3">
+          <Col xs={{  order: 2, size:3 }} md={{ size:3, order: 1 }}>
             <label><h5>Initiative</h5></label><br></br>
             {props.player.init}
           </Col>
-          <Col className="close-col" md="1">
+          <Col className="close-col" xs={{  order: 3 }} md={{ size:1, order: 1 }}>
             <button className="button" onClick={handleRemove} className="close">X</button>
           </Col>
         </Row>
