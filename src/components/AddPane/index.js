@@ -80,11 +80,11 @@ export default function AddPane(props){
           </Row>
           <Row form={true}>
             <Col>
-              <button onClick={() => handleSubmitPlayer("player")}>Submit</button>
+              <button className="button" onClick={() => handleSubmitPlayer("player")}>Submit</button>
             </Col>
             <Col></Col>
             <Col>
-              <button onClick={props.toggle}>Cancel</button>
+              <button className="button" onClick={props.toggle}>Cancel</button>
             </Col>
           </Row>
         </TabPane>
@@ -104,11 +104,11 @@ export default function AddPane(props){
           </Row>
           <Row form={true}>
             <Col>
-              <button onClick={() => handleSubmitPlayer("monster")}>Submit</button>
+              <button className="button" onClick={() => handleSubmitPlayer("monster")}>Submit</button>
             </Col>
             <Col></Col>
             <Col>
-              <button onClick={props.toggle}>Cancel</button>
+              <button className="button" onClick={props.toggle}>Cancel</button>
             </Col>
           </Row>
         </TabPane>

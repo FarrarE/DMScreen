@@ -10,7 +10,7 @@ const CurrentPane = (props) => {
       <Container className="current-pane">
         <Row> 
           <Col className="prev-col" md="3">
-            <button onClick={props.previous} type="submit">Prev</button>
+            <button className="button" onClick={props.previous} type="submit">Prev</button>
           </Col>
           <Col md="6">   
             <Player 
@@ -19,7 +19,7 @@ const CurrentPane = (props) => {
             />
           </Col>
           <Col className="next-col" md="3">
-            <button onClick={props.next} type="submit">Next</button>
+            <button className="button" onClick={props.next} type="submit">Next</button>
           </Col>
         </Row>
       </Container>

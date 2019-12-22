@@ -44,7 +44,7 @@ function Player(props){
             {props.player.init}
           </Col>
           <Col className="close-col" md="1">
-            <button onClick={handleRemove} className="close">X</button>
+            <button className="button" onClick={handleRemove} className="close">X</button>
           </Col>
         </Row>
       }

@@ -8,13 +8,13 @@ const HeaderPane = (props) => {
      <Container className="header-pane">
         <Row>
           <Col>
-              <button onClick={props.load} type="submit">Load</button>
-              <button onClick={props.save} type="submit">Save</button>
+              <button className="button" onClick={props.load} type="submit">Load</button>
+              <button className="button" onClick={props.save} type="submit">Save</button>
           </Col>
           <Col>DMScreen</Col>
           <Col>
-              <button onClick={props.sort} >Sort</button>
-              <button onClick={props.add}>Add</button>
+              <button className="button" onClick={props.sort} >Sort</button>
+              <button className="button" onClick={props.add}>Add</button>
           </Col>
         </Row>
       </Container>
