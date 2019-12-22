@@ -7,12 +7,12 @@ const HeaderPane = (props) => {
   return (
      <Container className="header-pane">
         <Row>
-          <Col xs={{ order: 2 }} md={{ size:4, order: 1 }}>
+          <Col xs={{ size:6, order: 2 }} md={{ size:4, order: 1 }}>
               <button className="button" onClick={props.load} type="submit">Load</button>
               <button className="button" onClick={props.save} type="submit">Save</button>
           </Col>
-          <Col xs={{ order: 1 }} md={{ size:4, order: 1 }}><h1>DMScreen</h1></Col>
-          <Col xs={{ order: 3 }} md={{ size:4, order: 1 }}> 
+          <Col xs={{  order: 1 }} md={{ size:4, order: 1 }}><h1>DMScreen</h1></Col>
+          <Col xs={{ size:6,order: 2 }} md={{ size:4, order: 1 }}> 
               <button className="button" onClick={props.sort} >Sort</button>
               <button className="button" onClick={props.add}>Add</button>
           </Col>
