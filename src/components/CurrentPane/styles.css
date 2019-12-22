@@ -1,18 +1,18 @@
-.current-pane{
-
+.current-pane {
   padding: 10px;
   margin-top: 3px;
   margin-bottom: 3px;
 }
 
-.prev-col{
-  margin-top:auto;
-  margin-bottom:auto;
+.prev-col {
+  margin-top: auto;
+  margin-bottom: auto;
   text-align: right;
 }
 
-.next-col{
-  margin-top:auto;
-  margin-bottom:auto;
+.next-col {
+  margin-top: auto;
+  margin-bottom: auto;
   text-align: left;
 }
+/*# sourceMappingURL=styles.css.map */

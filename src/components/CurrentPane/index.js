@@ -9,16 +9,16 @@ const CurrentPane = (props) => {
   return (
       <Container className="current-pane">
         <Row> 
-          <Col className="prev-col" md="3">
+          <Col xs={{ size:6, order: 2 }} md={{ size:3, order:1 }} className="prev-col">
             <button className="button" onClick={props.previous} type="submit">Prev</button>
           </Col>
-          <Col md="6">   
+          <Col xs={{  order: 1 }} md={{ size:6, order:1 }} >   
             <Player 
               player={props.currentPlayer} 
               remove={props.remove}
             />
           </Col>
-          <Col className="next-col" md="3">
+          <Col xs={{ size:6, order: 2 }} md={{ size:3, order:1  }} className="next-col">
             <button className="button" onClick={props.next} type="submit">Next</button>
           </Col>
         </Row>
