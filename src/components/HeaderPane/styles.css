@@ -1,4 +1,10 @@
 .header-pane {
   margin-top: 1rem;
 }
+
+.header-pane h1 {
+  font-weight: bold;
+  font-family: impact;
+  color: #424242;
+}
 /*# sourceMappingURL=styles.css.map */

@@ -7,7 +7,7 @@ import monster from '../Player/assets/Orc.png';
 import player from '../Player/assets/Player.png';
 
 
-export default function AddPane(props){
+export default function AddPane(props) {
   const [activeTab, setActiveTab] = useState("player");
   const [name, setName] = useState();
   const [init, setInit] = useState();
@@ -18,7 +18,7 @@ export default function AddPane(props){
     }
   }
 
-  function genUkey(seed){
+  function genUkey(seed) {
     return Math.floor((Math.random() * 99999) + 10000) + seed + Math.floor((Math.random() * 99999) + 10000);
   }
 
@@ -34,7 +34,7 @@ export default function AddPane(props){
     props.toggle();
   }
 
-  function handleNameChange(event){
+  function handleNameChange(event) {
     setName(event.target.value)
   }
 
@@ -43,76 +43,78 @@ export default function AddPane(props){
   }
 
   return (
+    <div className="add-pane">
+      <Container>
+        <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: activeTab === 'player' })}
+              onClick={() => { toggle('player'); }}
+            >
+              Player
+          </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: activeTab === 'monster' })}
+              onClick={() => { toggle('monster'); }}
+            >
+              Monster
+          </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent activeTab={activeTab}>
+          <TabPane tabId="player">
+            <Row form={true}>
+              <input type="text" placeholder="Name" onChange={handleNameChange} />
+            </Row>
+            <Row form={true}>
+              <input type="text" placeholder="Initiative" onChange={handleInitChange} />
+            </Row>
+            <Row form={true}>
+              <Col></Col>
+              <Col>
+                <img src={player} alt={"..."}></img>
+              </Col>
+              <Col></Col>
+            </Row>
+            <Row form={true}>
+              <Col>
+                <button className="button" onClick={() => handleSubmitPlayer("player")}>Submit</button>
+              </Col>
+              <Col></Col>
+              <Col>
+                <button className="button" onClick={props.toggle}>Cancel</button>
+              </Col>
+            </Row>
+          </TabPane>
+          <TabPane tabId="monster">
+            <Row form={true}>
+              <input type="text" placeholder="Name" onChange={handleNameChange} />
+            </Row>
+            <Row form={true}>
+              <input type="text" placeholder="Initiative" onChange={handleInitChange} />
+            </Row>
+            <Row form={true}>
+              <Col></Col>
+              <Col>
+                  <img src={monster} alt={"..."}></img>
+              </Col>
+              <Col></Col>
+            </Row>
+            <Row form={true}>
+              <Col>
+                <button className="button" onClick={() => handleSubmitPlayer("monster")}>Submit</button>
+              </Col>
+              <Col></Col>
+              <Col>
+                <button className="button" onClick={props.toggle}>Cancel</button>
+              </Col>
+            </Row>
+          </TabPane>
+        </TabContent >
+      </Container >
+    </div>
 
-    <Container className="add-pane">
-      <Nav tabs>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === 'player' })}
-            onClick={() => { toggle('player');} }
-          >
-            Player
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === 'monster' })}
-            onClick={() => { toggle('monster'); }}
-          >
-            Monster
-          </NavLink>
-        </NavItem>
-      </Nav>
-      <TabContent activeTab={activeTab}>
-        <TabPane tabId="player">
-          <Row form={true}>
-            <input type="text" placeholder="Name" onChange={handleNameChange}/>
-          </Row>
-          <Row form={true}>
-            <input type="text" placeholder="Initiative" onChange={handleInitChange}/>
-          </Row>
-          <Row form={true}>
-            <Col></Col>
-            <Col>
-              <img src={player} alt={"..."}></img>
-            </Col>
-            <Col></Col>
-          </Row>
-          <Row form={true}>
-            <Col>
-              <button className="button" onClick={() => handleSubmitPlayer("player")}>Submit</button>
-            </Col>
-            <Col></Col>
-            <Col>
-              <button className="button" onClick={props.toggle}>Cancel</button>
-            </Col>
-          </Row>
-        </TabPane>
-        <TabPane tabId="monster">
-          <Row form={true}>
-            <input type="text" placeholder="Name" onChange={handleNameChange} />
-          </Row>
-          <Row form={true}>
-            <input type="text" placeholder="Initiative" onChange={handleInitChange} />
-          </Row>
-          <Row form={true}>
-            <Col></Col>
-            <Col>
-              <img src={monster} alt={"..."}></img>
-            </Col>
-            <Col></Col>
-          </Row>
-          <Row form={true}>
-            <Col>
-              <button className="button" onClick={() => handleSubmitPlayer("monster")}>Submit</button>
-            </Col>
-            <Col></Col>
-            <Col>
-              <button className="button" onClick={props.toggle}>Cancel</button>
-            </Col>
-          </Row>
-        </TabPane>
-      </TabContent>
-    </Container>
   );
 }
