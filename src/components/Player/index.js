@@ -48,7 +48,7 @@ function Player(props) {
             <input id={props.player.name} className="init-input" type="number" value={props.player.init} maxLength="3" onChange={updateInput} />
           </Col>
           <Col className="close-col" xs={{ order: 3 }} md={{ size: 1, order: 1 }}>
-            <button className="button" onClick={handleRemove} className="close">X</button>
+            <div className="close" onClick={handleRemove} >X</div>
           </Col>
         </Row>
       }
