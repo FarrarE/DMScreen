@@ -44,7 +44,7 @@ export default function AddPane(props) {
 
   return (
     <div>
-      <div id="backdrop"></div>
+      <div id="backdrop" onClick={props.toggle}></div>
       <div className="add-pane">
         <Nav tabs>
           <NavItem>
@@ -83,10 +83,6 @@ export default function AddPane(props) {
               <Col>
                 <button className="button" onClick={() => handleSubmitPlayer("player")}>Submit</button>
               </Col>
-              <Col></Col>
-              <Col>
-                <button className="button" onClick={props.toggle}>Cancel</button>
-              </Col>
             </Row>
           </TabPane>
           <TabPane tabId="monster">
@@ -106,10 +102,6 @@ export default function AddPane(props) {
             <Row form={true}>
               <Col>
                 <button className="button" onClick={() => handleSubmitPlayer("monster")}>Submit</button>
-              </Col>
-              <Col></Col>
-              <Col>
-                <button className="button" onClick={props.toggle}>Cancel</button>
               </Col>
             </Row>
           </TabPane>
