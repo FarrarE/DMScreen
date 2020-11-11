@@ -1,11 +1,11 @@
 .header-pane {
   width: 100%;
   padding: 1rem;
+  background-color: #34495E;
 }
 
 .header-pane h1 {
   font-weight: bold;
-  font-family: impact;
-  color: #424242;
+  color: white;
 }
 /*# sourceMappingURL=styles.css.map */

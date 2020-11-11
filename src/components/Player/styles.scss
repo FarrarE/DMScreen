@@ -1,8 +1,8 @@
 .player-card {
-  border: solid 2px;
   border-radius: .5rem;
-  padding: 1rem;
-  margin: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem;
+  background-color:#34495E;
 }
 
 .icon-col {
@@ -15,11 +15,13 @@
 
 .icon-div {
   position: absolute;
-  border: solid 2px;
   border-radius: .5rem;
-  padding: 10px;
+  padding: .5rem;
   top: 4px;
   background-color: white;
+  img{
+    width:3rem;
+  }
 }
 
 .player-card:hover {
@@ -34,6 +36,7 @@
 
 .player-card:hover .close {
   display: inline;
+  color:red;
 }
 
 .close {
@@ -44,6 +47,9 @@
   margin-top: auto;
   margin-bottom: auto;
   text-align: right;
+  button{
+    border:none;
+  }
 }
 
 .init-input{

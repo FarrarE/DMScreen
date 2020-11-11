@@ -8,16 +8,17 @@ html,
   -moz-osx-font-smoothing: grayscale;
   max-width: 100%;
   overflow-x: hidden;
+  color: white;
 }
 
 .button {
-  border: 0.1rem solid black;
+  border: none;
+  padding: .5rem;
   border-radius: 0.5rem;
   font-size: 1em;
   color: black;
   margin: 0.3rem;
   font-size: 1.5rem;
-  background-color: #b9acc0;
 }
 
 input {
@@ -26,6 +27,6 @@ input {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: Open Sans;
 }
 /*# sourceMappingURL=index.css.map */
