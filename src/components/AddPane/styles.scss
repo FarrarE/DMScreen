@@ -23,17 +23,22 @@
     background-color:  #2C3E50;
     img {
         background-color: white;
-        margin: 0.5rem;
-        border-radius: 50%;
+        margin-top:1rem;
+        margin-bottom: .5rem;
+        border-radius: .5rem;
         padding: 0.5rem;
+        width:4rem;
     }
     input {
         margin-top: 1rem;
         margin-left: auto;
         margin-right: auto;
+        padding:.5rem;
     }
 }
-
+a{
+    font-weight: bold;
+}
 .add-pane .row {
     margin: 100px;
     padding: 100px;
@@ -49,8 +54,8 @@
     opacity: .6;
 }
 a {
-  color: black;
+  color: white;
 }
 a:hover{
-    color:black;
+    color:white;
 }
