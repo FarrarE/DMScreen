@@ -43,8 +43,9 @@ export default function AddPane(props) {
   }
 
   return (
-    <div className="add-pane">
-      <Container>
+    <div>
+      <div id="backdrop"></div>
+      <div className="add-pane">
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -98,7 +99,7 @@ export default function AddPane(props) {
             <Row form={true}>
               <Col></Col>
               <Col>
-                  <img src={monster} alt={"..."}></img>
+                <img src={monster} alt={"..."}></img>
               </Col>
               <Col></Col>
             </Row>
@@ -113,7 +114,7 @@ export default function AddPane(props) {
             </Row>
           </TabPane>
         </TabContent >
-      </Container >
+      </div >
     </div>
 
   );

@@ -3,7 +3,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 20px;
+  border-radius: .5rem;
+  border: .1rem solid black;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -14,8 +15,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   max-width: 90%;
   max-height: 90%;
   width: -webkit-max-content;
@@ -34,23 +33,42 @@
   margin-bottom: auto;
   padding: 2rem;
   z-index: 100;
-  background-color: #a8b6bd !important;
+  background-color: #8d7f94;
 }
 
 .add-pane img {
   background-color: white;
-  margin: 0.2rem;
+  margin: 0.5rem;
   border-radius: 50%;
   padding: 0.5rem;
 }
 
 .add-pane input {
-  margin: 0.5rem;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .add-pane .row {
   margin: 100px;
   padding: 100px;
   background-color: black;
+}
+
+#backdrop {
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  z-index: 50;
+  opacity: .6;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
 }
 /*# sourceMappingURL=styles.css.map */

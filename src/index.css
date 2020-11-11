@@ -11,17 +11,18 @@ html,
 }
 
 .button {
-  border: .1rem solid grey;
-  border-radius: .2rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
   font-size: 1em;
   color: black;
   margin: 0.3rem;
   font-size: 1.5rem;
+  background-color: #b9acc0;
 }
 
-.button:hover {
-  -webkit-box-shadow: 7px 7px 14px #7f7285;
-          box-shadow: 7px 7px 14px #7f7285;
+input {
+  border-radius: 0.5rem;
+  border: 0.1rem solid black;
 }
 
 code {
