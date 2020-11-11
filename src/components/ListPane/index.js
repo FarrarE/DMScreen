@@ -8,19 +8,15 @@ function ListPane(props) {
   const [players, setPlayers] = useState(null);
 
   useEffect(() => {
-      loadPlayers();
+    setPlayers(props.players);
   }, [props.players]);
-
-  async function loadPlayers(){
-    setPlayers(props.players);    
-  }
-
   return (
     <Container className="list-pane">
-      {players && players.map(player => <Player 
+      {players && players.map((player, index) => <Player
+        key={"player" + index}
         className="player"
         player={player}
-        remove={props.remove}/>
+        remove={props.remove} />
       )}
     </Container>
   )

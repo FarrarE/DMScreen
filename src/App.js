@@ -22,7 +22,6 @@ export default function App(){
 
   // Gets a list from the server api route and saves it to props list
   function populateList(event) {
-
     setList(JSON.parse(localStorage.getItem("playerList")));
   }
 
