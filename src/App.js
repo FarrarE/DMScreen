@@ -100,6 +100,18 @@ export default function App() {
 
   }
 
+  function onChangeHandler(event) {
+
+    let value = event.target.value;
+    let newList = [...list];
+    for (var i = 0; i < newList.length; ++i) {
+      if (newList[i].name === event.target.id)
+        newList[i].init = value;
+    }
+
+    setList(newList);
+  }
+
   return (
 
     <Container className="app">
@@ -123,6 +135,7 @@ export default function App() {
       <Row className="List">
         <ListPane
           remove={removeButton}
+          onChange={onChangeHandler}
           players={list && list}
         />
       </Row>

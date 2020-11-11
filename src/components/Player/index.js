@@ -21,7 +21,7 @@ function Player(props) {
   }
 
   function updateInput(event) {
-    event.target.placeholder = event.target.value;
+    props.onChange(event);
   }
 
   return (
@@ -45,7 +45,7 @@ function Player(props) {
           </Col>
           <Col xs={{ order: 2, size: 3 }} md={{ size: 3, order: 1 }}>
             <label><h5>Initiative</h5></label><br></br>
-            <input className="init-input" type="number" placeholder={props.player.init} maxLength="3" onChange={updateInput} />
+            <input id={props.player.name} className="init-input" type="number" value={props.player.init} maxLength="3" onChange={updateInput} />
           </Col>
           <Col className="close-col" xs={{ order: 3 }} md={{ size: 1, order: 1 }}>
             <button className="button" onClick={handleRemove} className="close">X</button>
