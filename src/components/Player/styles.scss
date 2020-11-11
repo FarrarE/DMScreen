@@ -1,8 +1,8 @@
 .player-card {
   border: solid 2px;
   border-radius: 20px;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
 .icon-col {
@@ -20,11 +20,10 @@
   padding: 10px;
   top: 4px;
   background-color: white;
-  box-shadow: 5px 5px 10px #8f9ba1, -5px -5px 10px #c1d1d9;
 }
 
 .player-card:hover {
-  box-shadow: 5px 5px 10px #8f9ba1;
+  box-shadow:  7px 7px 14px #7f7285;
 
   .monster-icon {
     content: url("assets/SadOrc.png");
@@ -51,4 +50,8 @@
 .init-input{
   width:3rem;
   text-align: center;
+}
+
+.current{
+  border-color: red;
 }

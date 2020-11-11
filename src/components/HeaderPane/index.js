@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HeaderPane = (props) => {
   return (
-     <Container className="header-pane">
+     <div className="header-pane">
         <Row>
           <Col xs={{ size:6, order: 2 }} md={{ size:4, order: 1 }}>
               <button className="button" onClick={props.load} type="submit">Load</button>
@@ -17,7 +17,7 @@ const HeaderPane = (props) => {
               <button className="button" onClick={props.add}>Add</button>
           </Col>
         </Row>
-      </Container>
+      </div>
   )
 }
 

@@ -114,16 +114,14 @@ export default function App() {
 
   return (
 
-    <Container className="app">
+    <div className="app">
       {addPaneOpen && <AddPane add={addNewPlayer} toggle={toggleAddPane} />}
-      <Row className="Header">
-        <HeaderPane
-          load={populateList}
-          save={saveList}
-          add={toggleAddPane}
-          sort={sortList}
-        />
-      </Row>
+      <HeaderPane
+        load={populateList}
+        save={saveList}
+        add={toggleAddPane}
+        sort={sortList}
+      />
       <Row className="Current">
         <CurrentPane
           previous={previousPlayer}
@@ -137,8 +135,9 @@ export default function App() {
           remove={removeButton}
           onChange={onChangeHandler}
           players={list && list}
+          current={current}
         />
       </Row>
-    </Container>
+    </div>
   )
 }

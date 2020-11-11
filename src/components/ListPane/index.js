@@ -12,9 +12,10 @@ function ListPane(props) {
   }, [props.players]);
   return (
     <Container className="list-pane">
-      {players && players.map((player, index) => <Player
+      {players && players.map((player, index) => 
+       <Player
         key={props.name + index}
-        className="player"
+        className="player "
         player={player}
         remove={props.remove} 
         onChange={props.onChange} />

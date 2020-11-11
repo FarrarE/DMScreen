@@ -25,7 +25,7 @@ function Player(props) {
   }
 
   return (
-    <Container className="player-card">
+    <div className="player-card">
       {props.player &&
         <Row>
           <Col xs={{ order: 1, size: 2 }} md={{ size: 2, order: 1 }}>
@@ -52,7 +52,7 @@ function Player(props) {
           </Col>
         </Row>
       }
-    </Container>
+    </div>
   )
 }
 

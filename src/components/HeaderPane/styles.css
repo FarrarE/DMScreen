@@ -1,5 +1,6 @@
 .header-pane {
-  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
 }
 
 .header-pane h1 {
